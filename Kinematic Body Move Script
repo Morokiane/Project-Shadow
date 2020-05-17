@@ -1,0 +1,20 @@
+extends KinematicBody2D
+
+export var accel = 500
+export var maxSpeed = 200
+
+var velocity = Vector2.ZERO
+
+func _process(delta):
+	var pos = Vector2.ZERO
+	pos.x = Input.get_action_strength("Right Analog - Right") - Input.get_action_strength("Right Analog - Left")
+	pos.y = Input.get_action_strength("Right Analog - Down") - Input.get_action_strength("Right Analog - Up")
+	pos = pos.normalized()
+	
+	if pos != Vector2.ZERO:
+		velocity += pos * accel * delta
+		velocity = velocity.clamped(maxSpeed)
+	else:
+		velocity = velocity.linear_interpolate(Vector2.ZERO, 0.2)
+		
+	velocity = move_and_slide(velocity) 

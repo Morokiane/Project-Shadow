@@ -1,0 +1,26 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://raw/scarecrow/0144.png" type="Texture" id=1]
+[ext_resource path="res://raw/scarecrow/0148.png" type="Texture" id=2]
+[ext_resource path="res://raw/scarecrow/0152.png" type="Texture" id=3]
+[ext_resource path="res://raw/scarecrow/0150.png" type="Texture" id=4]
+[ext_resource path="res://raw/scarecrow/0142.png" type="Texture" id=5]
+[ext_resource path="res://raw/scarecrow/0162.png" type="Texture" id=6]
+[ext_resource path="res://raw/scarecrow/0164.png" type="Texture" id=7]
+[ext_resource path="res://raw/scarecrow/0160.png" type="Texture" id=8]
+[ext_resource path="res://raw/scarecrow/0158.png" type="Texture" id=9]
+[ext_resource path="res://raw/scarecrow/0140.png" type="Texture" id=10]
+[ext_resource path="res://raw/scarecrow/0146.png" type="Texture" id=11]
+[ext_resource path="res://raw/scarecrow/0154.png" type="Texture" id=12]
+[ext_resource path="res://raw/scarecrow/0156.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="scarecrow_side" type="AnimatedSprite"]
+frames = SubResource( 1 )

@@ -1,0 +1,8 @@
+idle: 1-30
+walk cycle frames: 35 - 53 
+
+Color value 1
+
+black .4,.4,.4
+
+export(String) var text = "Slider" setget set_text
