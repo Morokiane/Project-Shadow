@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var accel = 512
-export var maxSpeed = 64
+export var maxSpeed = 90
 export var friction = 0.25
 export var gravity = 200
 export var jumpForce = 128
