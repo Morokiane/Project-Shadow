@@ -30,13 +30,13 @@ func _process(_delta):
 		lanternLight.show()
 		timer.stop()
 	
-	if Input.is_action_just_pressed("ui_cancel") && gameController.hasLantern == true:
+	if Input.is_action_just_pressed("lantern") && gameController.hasLantern == true:
 		gameController.hasLantern = false
 		lanternLight.hide()
 		timer.start()
 		setToggle = true
 		
-	elif Input.is_action_just_pressed("ui_cancel") && setToggle == true:
+	elif Input.is_action_just_pressed("lantern") && setToggle == true:
 		gameController.hasLantern = true
 		lanternLight.show()
 		timer.stop()
@@ -169,4 +169,4 @@ func Cheats():
 		maxSpeed += 100
 	
 	if Input.is_action_just_pressed("ui_home"):
-		maxSpeed = 64
+		maxSpeed = 130

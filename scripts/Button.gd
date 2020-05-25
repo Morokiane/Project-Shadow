@@ -16,7 +16,7 @@ var canPressButton = false
 #	print (gameController.text)
 
 func _process(_area):
-	if Input.is_action_just_pressed("ui_accept") && switchOn == false && canPressButton == true && gameController.diamondKey == true:
+	if Input.is_action_just_pressed("interact") && switchOn == false && canPressButton == true && gameController.diamondKey == true:
 		emit_signal("turnOn")
 		anim.play("switch")
 		switchOn = true

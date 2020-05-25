@@ -5,7 +5,7 @@ export (NodePath) var moveTarget = null
 var inDoor = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept") && inDoor == true:
+	if Input.is_action_just_pressed("interact") && inDoor == true:
 		get_tree().call_group("player", "MoveTo", get_node(moveTarget).position)
 
 func _on_Door_body_entered(body):
