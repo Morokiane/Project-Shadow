@@ -9,12 +9,12 @@ onready var collision = $CollisionShape2D
 export var lightCanScale = false
 export (float) var speed = 200
 export (float) var lightSpeed = .01
-export var lightScale = Vector2(2,2)
+export var lanternScale = Vector2(2,2)
 
 var energy = 1
 
 func _ready():
-	set_scale (lightScale)
+	set_scale (lanternScale)
 #	sprite = Color(0, 0, 1, .5) # blue shade
 #	sprite.modulate.a = 1
 	
@@ -31,18 +31,18 @@ func _process(delta):
 #	sprite.modulate.a - .1
 	
 	if lightCanScale == true:
-		lightScale = lightScale - Vector2(lightSpeed, lightSpeed) * delta
-		set_scale (lightScale)
+		lanternScale = lanternScale - Vector2(lightSpeed, lightSpeed) * delta
+		set_scale (lanternScale)
 
 		energy = light.energy - .001
 		light.set_energy (energy)
 		
-		if lightScale < Vector2(0,0):
+		if lanternScale < Vector2(0,0):
 			lightCanScale = false
 			collision.disabled = true
 			print("moo")
 	
-#	if lightScale == Vector2(0,0):
+#	if lanternScale == Vector2(0,0):
 #		sprite.modulate.a - .1
 
 func Move(xspeed, yspeed, delta):

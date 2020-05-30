@@ -6,12 +6,19 @@ export var friction = 0.25
 export var gravity = 200
 export var jumpForce = 128
 export var maxSlope = 46
+export var canDie = false
+
+#controls light scaling
+export (float) var lightSpeed = .01
+export var lanternScale = Vector2(2,2)
+export var lightCanScale = true
 
 var motion = Vector2.ZERO
 var snap = Vector2.ZERO
 var justJumped = false
 var canMove = true
 var setToggle = false
+var energy = 3
 
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
@@ -20,6 +27,8 @@ onready var lanternLight = $Sprite/Light2D
 onready var gameController = get_node("/root/GameController")
 
 func _ready():
+	gameController.RegisterPlayer(self)
+#	$"/root/GameController".RegisterPlayer(self)
 	timer.set_wait_time(5)
 
 func _process(_delta):
@@ -56,6 +65,7 @@ func _physics_process(delta):
 #	UpdateAnimL(pos)
 	Move(pos)
 	Duck()
+	LanternScale(delta)
 
 func GetPosition():
 	var pos = Vector2.ZERO
@@ -158,9 +168,26 @@ func _on_Light_area_exited(_area):
 	#if needLight == false:
 #		timer.stop()
 	#else:
-	timer.start()
 	print("no light")
+	if canDie == true:
+		timer.start()
 	
+func LanternScale(delta):
+	if lightCanScale == true && gameController.hasLantern == true:
+		lanternScale = lanternScale - Vector2(lightSpeed, lightSpeed) * delta
+		lanternLight.set_scale (lanternScale)
+
+		energy = lanternLight.energy - .001
+		lanternLight.set_energy (energy)
+
+		if lanternScale < Vector2(0,0):
+			lightCanScale = false
+			timer.start()
+			print("in light")
+		else:
+			lightCanScale = true
+			timer.stop()
+
 func KillPlayer():
 	print ("dead")
 
@@ -170,3 +197,13 @@ func Cheats():
 	
 	if Input.is_action_just_pressed("ui_home"):
 		maxSpeed = 130
+
+func Item():
+	var oilAmount = Vector2.ZERO
+
+	oilAmount = randf()*1
+	print (oilAmount)
+	lanternScale = lanternScale + Vector2(oilAmount, oilAmount)
+	lanternLight.set_scale (lanternScale)
+	energy = lanternLight.energy + oilAmount
+	lanternLight.set_energy (energy)

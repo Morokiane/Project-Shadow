@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform vec3 color = vec3(1.0, 1.0, 1.0);
-uniform int OCTAVES = 6;
+uniform int OCTAVES = 20;
 
 float rand(vec2 coord){
 	return fract(sin(dot(coord, vec2(56,78))* 1000.0) * 1000.0);
@@ -37,9 +37,9 @@ float fbm(vec2 coord){
 
 void fragment() {
 	
-	vec2 coord = UV * 50.0;
+	vec2 coord = UV * 500.0; //controls the size of texture
 	
-	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.5, TIME * -0.5)));
+	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.5, TIME * -0.5))); //was 0.5
 	
 	float  final = fbm(coord + motion);
 	
