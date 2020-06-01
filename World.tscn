@@ -211,7 +211,7 @@ z_index = 1
 [node name="Wave" parent="." instance=ExtResource( 19 )]
 position = Vector2( -304, 383 )
 z_index = 2
-frame = 9
+frame = 5
 speed_scale = 2.0
 playing = true
 
@@ -226,7 +226,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 20 )
-frame = 8
+frame = 4
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -387,11 +387,11 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 21 )]
 position = Vector2( 4008, 342 )
 z_index = 1
-frame = 5
+frame = 3
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 39 )]
 position = Vector2( 3298, -801 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 32 )]
@@ -405,7 +405,7 @@ texture = ExtResource( 35 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 14 )]
 position = Vector2( 6585, 382 )
-frame = 11
+frame = 44
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -597,11 +597,11 @@ texture = ExtResource( 13 )
 
 [node name="candle" parent="Background" instance=ExtResource( 52 )]
 position = Vector2( 16, 885 )
+frame = 1
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 53 )]
 position = Vector2( 5715, 325 )
 z_index = -1
-frame = 2
 
 [node name="barn_large" type="Sprite" parent="Background"]
 position = Vector2( 4898, -815 )

@@ -19,6 +19,8 @@ var justJumped = false
 var canMove = true
 var setToggle = false
 var energy = 3
+var movingRight = true
+var movingLeft = false
 
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
