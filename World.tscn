@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://scenes/Tile Maps/Single.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Tile Maps/Outside_TileMap.tscn" type="PackedScene" id=2]
@@ -61,6 +61,7 @@
 [ext_resource path="res://scenes/lamp_post.tscn" type="PackedScene" id=59]
 [ext_resource path="res://sprite/bg/Town/shortfence.png" type="Texture" id=60]
 [ext_resource path="res://sprite/bg/Town/graveyard.png" type="Texture" id=61]
+[ext_resource path="res://sprite/creatures/owlonbranch.png" type="Texture" id=62]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 23 )
@@ -211,7 +212,7 @@ z_index = 1
 [node name="Wave" parent="." instance=ExtResource( 19 )]
 position = Vector2( -304, 383 )
 z_index = 2
-frame = 5
+frame = 8
 speed_scale = 2.0
 playing = true
 
@@ -226,7 +227,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 20 )
-frame = 4
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -300,7 +301,7 @@ texture = ExtResource( 48 )
 modulate = Color( 1, 1, 1, 0.752941 )
 position = Vector2( -42, 63.5 )
 scale = Vector2( 1.22727, 0.703125 )
-frame = 3
+frame = 6
 speed_scale = 2.0
 playing = true
 
@@ -387,11 +388,10 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 21 )]
 position = Vector2( 4008, 342 )
 z_index = 1
-frame = 3
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 39 )]
 position = Vector2( 3298, -801 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 32 )]
@@ -403,9 +403,14 @@ position = Vector2( 1221.25, 139 )
 scale = Vector2( 0.922262, 1 )
 texture = ExtResource( 35 )
 
+[node name="owlonbranch" type="Sprite" parent="Background/ParallaxBackground/09"]
+position = Vector2( 1340.13, 202.947 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 62 )
+
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 14 )]
 position = Vector2( 6585, 382 )
-frame = 44
+frame = 51
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -453,6 +458,7 @@ texture = ExtResource( 17 )
 [node name="trees1" type="Sprite" parent="Background/ParallaxBackground/05"]
 position = Vector2( 785, 139 )
 scale = Vector2( 0.657954, 1 )
+z_index = -1
 texture = ExtResource( 34 )
 
 [node name="silo" type="Sprite" parent="Background/ParallaxBackground/05"]
@@ -597,11 +603,11 @@ texture = ExtResource( 13 )
 
 [node name="candle" parent="Background" instance=ExtResource( 52 )]
 position = Vector2( 16, 885 )
-frame = 1
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 53 )]
 position = Vector2( 5715, 325 )
 z_index = -1
+frame = 1
 
 [node name="barn_large" type="Sprite" parent="Background"]
 position = Vector2( 4898, -815 )

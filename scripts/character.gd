@@ -205,7 +205,8 @@ func Item():
 
 	oilAmount = randf()*1
 	print (oilAmount)
-	lanternScale = lanternScale + Vector2(oilAmount, oilAmount)
-	lanternLight.set_scale (lanternScale)
-	energy = lanternLight.energy + oilAmount
-	lanternLight.set_energy (energy)
+	if lanternScale < Vector2 (3, 3):
+		lanternScale = lanternScale + Vector2(oilAmount, oilAmount)
+		lanternLight.set_scale (lanternScale)
+		energy = lanternLight.energy + oilAmount
+		lanternLight.set_energy (energy)
