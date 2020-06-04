@@ -1,7 +1,7 @@
 extends Area2D
 
 export var amount = Vector2(4,4)
-export var increaseEnergy = 2.0
+export var increaseEnergy = 1.0
 
 onready var gameController = get_node("/root/GameController")
 # var player = preload("res://scripts/character.gd")
@@ -16,7 +16,7 @@ func _ready():
 func _on_Oil_body_entered(body):
 
 	var character = body.is_in_group("player")
-	if character:
+	if character && gameController.player.lanternScale < Vector2 (3,3) && gameController.hasLantern == true:
 		gameController.player.Item()
 		queue_free()
 

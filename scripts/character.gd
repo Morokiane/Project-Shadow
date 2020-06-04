@@ -179,8 +179,9 @@ func LanternScale(delta):
 		lanternScale = lanternScale - Vector2(lightSpeed, lightSpeed) * delta
 		lanternLight.set_scale (lanternScale)
 
-		energy = lanternLight.energy - .001
-		lanternLight.set_energy (energy)
+		#i don't think i need the energy to decay as the scale of the graphic for it will do it for me
+		# energy = lanternLight.energy - lightSpeed * delta
+		# lanternLight.set_energy (energy)
 
 		if lanternScale < Vector2(0,0):
 			lightCanScale = false
@@ -204,9 +205,13 @@ func Item():
 	var oilAmount = Vector2.ZERO
 
 	oilAmount = randf()*1
+
 	print (oilAmount)
+	
 	if lanternScale < Vector2 (3, 3):
 		lanternScale = lanternScale + Vector2(oilAmount, oilAmount)
 		lanternLight.set_scale (lanternScale)
+		print (lanternScale)
 		energy = lanternLight.energy + oilAmount
 		lanternLight.set_energy (energy)
+		print (energy)

@@ -184,7 +184,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6, 0.66, 0.72, 0.78, 0.84, 0.9, 0.96, 1.02, 1.08 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 31, -9.3817 ), Vector2( 33, -7.3817 ), Vector2( 37, -2.3817 ), Vector2( 41, 3.6183 ), Vector2( 42, 5.6183 ), Vector2( 42, 3.6183 ), Vector2( 43, -0.381699 ), Vector2( 43, -6.3817 ), Vector2( 43, -10.3817 ), Vector2( 42, -12.3817 ), Vector2( 41, -10.3817 ), Vector2( 40, -5.3817 ), Vector2( 38, 0.618301 ), Vector2( 36, 4.6183 ), Vector2( 35, 5.6183 ), Vector2( 35, 4.6183 ), Vector2( 34, 0.618301 ), Vector2( 33, -4.3817 ), Vector2( 32, -8.3817 ) ]
+"values": [ Vector2( 31.2093, -13.8827 ), Vector2( 33.3719, -12.0052 ), Vector2( 36.9766, -6.81029 ), Vector2( 40.2215, -0.634495 ), Vector2( 41.6133, 1.22123 ), Vector2( 41.9613, -0.170563 ), Vector2( 41.7293, -4.57792 ), Vector2( 41.2654, -9.79715 ), Vector2( 40.6855, -14.3205 ), Vector2( 40.3375, -15.5963 ), Vector2( 39.9896, -13.8566 ), Vector2( 39.1777, -8.52134 ), Vector2( 37.6699, -3.53407 ), Vector2( 36.6261, 0.409355 ), Vector2( 35.9302, 1.68517 ), Vector2( 35.4662, -0.0545769 ), Vector2( 34.7703, -3.76603 ), Vector2( 33.4945, -8.86928 ), Vector2( 32.1027, -12.4648 ) ]
 }
 
 [sub_resource type="OccluderPolygon2D" id=10]
@@ -202,20 +202,24 @@ position = Vector2( 0, -56.6183 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
+frame = 11
 
 [node name="GhostTrail" parent="Sprite" instance=ExtResource( 3 )]
 texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="Sprite"]
 visible = false
-position = Vector2( 31, -9.3817 )
-scale = Vector2( 2.52632, 2.52632 )
+position = Vector2( 32.1027, -12.4648 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 4 )
 color = Color( 0.980392, 0.909804, 0.72549, 1 )
-energy = 3.0
+energy = 2.5
 shadow_enabled = true
 shadow_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 shadow_item_cull_mask = 14
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Sprite/Light2D"]
 light_mask = 0
