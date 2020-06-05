@@ -201,6 +201,9 @@ func Cheats():
 	if Input.is_action_just_pressed("ui_home"):
 		maxSpeed = 130
 
+	if Input.is_action_just_pressed("lanterncheat"):
+		gameController.hasLantern = true
+
 func Item():
 	var oilAmount = Vector2.ZERO
 
