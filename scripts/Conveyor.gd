@@ -5,7 +5,7 @@ var onConveyor = false
 
 onready var player = "res://scenes/character.tscn"
 
-func _process(delta):
+func _process(_delta):
 	if onConveyor == true:
 		pass
 		
