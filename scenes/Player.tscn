@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/character.tscn" type="PackedScene" id=43]
+
+[node name="Player" type="Node"]
+
+[node name="character" parent="." instance=ExtResource( 43 )]
+collision_mask = 12
+maxSpeed = 130
+gravity = 400
+jumpForce = 215
+
+[node name="CameraFollow" parent="character" index="6"]
+position = Vector2( 0, -142 )
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="character" groups=[
+"camera",
+]]
+position = Vector2( 0, -142 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+drag_margin_h_enabled = true
+
+[editable path="character"]

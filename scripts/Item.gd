@@ -8,9 +8,10 @@ onready var gameController = get_node("/root/GameController")
 # onready var player = get_tree().get_root().get_node("character.tscn")
 
 func _ready():
+	pass
 	
 	# player = player.new()
-	print(gameController.player.lanternScale)
+	# print(gameController.player.lanternScale)
 #	print(player.energy)
 
 func _on_Oil_body_entered(body):
