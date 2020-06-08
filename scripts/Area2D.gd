@@ -4,7 +4,7 @@ onready var sprite = $Sprite
 
 func _ready():
 	sprite.visible = false
-	print ("this is running")
+	#print ("this is running")
 
 func _on_Area2D_area_entered(_area):
 	sprite.visible = true

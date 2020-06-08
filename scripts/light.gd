@@ -40,7 +40,7 @@ func _process(delta):
 		if lanternScale < Vector2(0,0):
 			lightCanScale = false
 			collision.disabled = true
-			print("flashlight is gone")
+			#print("flashlight is gone")
 	
 #	if lanternScale == Vector2(0,0):
 #		sprite.modulate.a - .1

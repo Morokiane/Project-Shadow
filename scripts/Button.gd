@@ -13,7 +13,7 @@ var canPressButton = false
 #func _ready():
 #	text = str2var(text)
 #	var text = text
-#	print (gameController.text)
+#	#print (gameController.text)
 
 func _process(_area):
 	if Input.is_action_just_pressed("interact") && switchOn == false && canPressButton == true && gameController.diamondKey == true:

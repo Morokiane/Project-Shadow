@@ -163,14 +163,14 @@ func MoveTo(targetPOS):
 	position = targetPOS
 
 func _on_Light_area_entered(_area):
-	print("in light")
+	#print("in light")
 	timer.stop()
 
 func _on_Light_area_exited(_area):
 	#if needLight == false:
 #		timer.stop()
 	#else:
-	print("no light")
+	#print("no light")
 	if canDie == true:
 		timer.start()
 	
@@ -186,7 +186,7 @@ func LanternScale(delta):
 		if lanternScale < Vector2(0,0):
 			lightCanScale = false
 			timer.start()
-			print("in light")
+			#print("in light")
 		else:
 			lightCanScale = true
 			timer.stop()
@@ -209,12 +209,12 @@ func Item():
 
 	oilAmount = randf()*1
 
-	print (oilAmount)
+	# #print (oilAmount)
 	
 	if lanternScale < Vector2 (3, 3):
 		lanternScale = lanternScale + Vector2(oilAmount, oilAmount)
 		lanternLight.set_scale (lanternScale)
-		print (lanternScale)
+		#print (lanternScale)
 		energy = lanternLight.energy + oilAmount
 		lanternLight.set_energy (energy)
-		print (energy)
+		# #print (energy)

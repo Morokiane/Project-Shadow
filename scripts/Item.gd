@@ -11,8 +11,8 @@ func _ready():
 	pass
 	
 	# player = player.new()
-	# print(gameController.player.lanternScale)
-#	print(player.energy)
+	# #print(gameController.player.lanternScale)
+#	#print(player.energy)
 
 func _on_Oil_body_entered(body):
 
@@ -28,4 +28,4 @@ func PowerUp():
 	# player.energy = energy
 	gameController.player.energy = gameController.player.energy + increaseEnergy
 	gameController.player.energy.set_energy = increaseEnergy
-	# print (player.lanternScale)
+	# #print (player.lanternScale)

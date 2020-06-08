@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://scripts/DrawBridge.gd" type="Script" id=2]
@@ -44,7 +44,6 @@
 [ext_resource path="res://scenes/BG/SconceSide.tscn" type="PackedScene" id=42]
 [ext_resource path="res://scenes/key.tscn" type="PackedScene" id=43]
 [ext_resource path="res://scenes/DrawBridge.tscn" type="PackedScene" id=44]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=45]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scenes/BG/Wave.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/Tile Maps/Outside_TileMap.tscn" type="PackedScene" id=48]
@@ -235,7 +234,7 @@ texture = ExtResource( 27 )
 modulate = Color( 1, 1, 1, 0.752941 )
 position = Vector2( -42, 63.5 )
 scale = Vector2( 1.22727, 0.703125 )
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -378,10 +377,11 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 51 )]
 position = Vector2( 4008, 342 )
 z_index = 1
+frame = 4
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
 position = Vector2( 3298, -801 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 52 )]
@@ -405,7 +405,7 @@ texture = ExtResource( 33 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 66 )]
 position = Vector2( 6585, 382 )
-frame = 15
+frame = 35
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -607,6 +607,7 @@ texture = ExtResource( 6 )
 
 [node name="candle" parent="Background" instance=ExtResource( 57 )]
 position = Vector2( 16, 885 )
+frame = 1
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 61 )]
 position = Vector2( 5715, 325 )
@@ -633,7 +634,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 21 )
-frame = 2
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -731,7 +732,7 @@ position = Vector2( 9984, 384 )
 moveTarget = NodePath("../../../Town/Doors/GHOut")
 
 [node name="Exit" parent="." instance=ExtResource( 69 )]
-position = Vector2( 350, 220 )
+position = Vector2( 308, 385 )
 levelPath = "res://levels/Caves.tscn"
 
 [node name="UnderConstruction" parent="." instance=ExtResource( 70 )]
@@ -741,12 +742,5 @@ z_index = 2
 [node name="UnderConstruction2" parent="." instance=ExtResource( 70 )]
 position = Vector2( 10367, 384 )
 z_index = 2
-
-[node name="Player" parent="." instance=ExtResource( 45 )]
-
-[node name="character" parent="Player" index="0"]
-position = Vector2( 33, 357 )
 [connection signal="area_entered" from="Items/DiamondButton" to="Items/DiamondButton" method="_on_DiamondButton_area_entered"]
 [connection signal="turnOn" from="Items/DiamondButton" to="Items/DrawBridge" method="_on_DiamondButton_turnOn"]
-
-[editable path="Player"]

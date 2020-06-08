@@ -12,7 +12,7 @@ func _process(_delta):
 		# emit_signal("turnOn")
 		anim.play("down")
 		animSprite.play("down")
-		print (animSprite)
+		# #print (animSprite)
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):

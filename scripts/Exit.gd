@@ -10,8 +10,8 @@ export(String, FILE, "*.tscn") var levelPath = ""
 var inDoor = false
 var exit = self.position
 
-func _ready():
-	print(self.position)
+# func _ready():
+# 	#print(self.position)
 	
 # func _process(_delta):
 # 	if Input.is_action_just_pressed("interact") && inDoor == true:
@@ -28,11 +28,13 @@ func _on_Door_body_exited(body):
 
 func WriteCoords():
 	
+	#print(get_position_in_parent())
+	call_deferred("LoadLevel")
 	# currentL = player.position
 
 	# var get_node(currentL).playerExit = pp
 	# var currentL.playerExit = player.position
-	# print (currentL)
+	# #print (currentL)
 	
 
 	LoadLevel()
