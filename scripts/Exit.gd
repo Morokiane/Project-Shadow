@@ -8,11 +8,12 @@ export(String, FILE, "*.tscn") var levelPath = ""
 # export(String, FILE, "*.tscn") var currentLevel = ""
 
 var inDoor = false
-var exit = self.position
+export var exit = Vector2(0,0)
 
-# func _ready():
-# 	#print(self.position)
+func _ready():
 	
+	exit = self.position
+
 # func _process(_delta):
 # 	if Input.is_action_just_pressed("interact") && inDoor == true:
 # 		get_tree().call_group("player", "MoveTo", get_node(moveTarget).position)
@@ -27,19 +28,20 @@ func _on_Door_body_exited(body):
 		inDoor = false
 
 func WriteCoords():
-	
+
+	gameController.exitTo = exit
 	#print(get_position_in_parent())
-	call_deferred("LoadLevel")
+	# call_deferred("LoadLevel")
 	# currentL = player.position
 
 	# var get_node(currentL).playerExit = pp
 	# var currentL.playerExit = player.position
 	# #print (currentL)
-	
-
+	# gameController.player.queue_free()
 	LoadLevel()
 
 func LoadLevel():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(levelPath)
+	print (exit)
 	# player.position = exit
