@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var gameController = get_node("/root/GameController")
+onready var levelController = get_node("/root/LevelController")
 onready var player = gameController.player
 
 # export (NodePath) var currentL = null
@@ -8,11 +9,17 @@ export(String, FILE, "*.tscn") var levelPath = ""
 # export(String, FILE, "*.tscn") var currentLevel = ""
 
 var inDoor = false
-export var exit = Vector2(0,0)
+var exitX = position.x
+var exitY = position.y
+var exit = Vector2(0,0)
 
 func _ready():
 	
+	exitX = self.position.x
+	exitY = self.position.y
+
 	exit = self.position
+	print (exitX, exitY)
 
 # func _process(_delta):
 # 	if Input.is_action_just_pressed("interact") && inDoor == true:
@@ -29,7 +36,11 @@ func _on_Door_body_exited(body):
 
 func WriteCoords():
 
-	gameController.exitTo = exit
+	if levelController.outOfTown == true:
+		levelController.outOfTown = false
+	else:
+		levelController.leftTownAt = exit
+		levelController.outOfTown = true
 	#print(get_position_in_parent())
 	# call_deferred("LoadLevel")
 	# currentL = player.position
@@ -43,5 +54,4 @@ func WriteCoords():
 func LoadLevel():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(levelPath)
-	print (exit)
 	# player.position = exit

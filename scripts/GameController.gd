@@ -8,8 +8,6 @@ var squareKey = false
 var drawBridgeOpen = false
 var hasLantern = false
 
-var exitTo = Vector2(0,0)
-
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()

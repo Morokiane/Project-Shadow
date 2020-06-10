@@ -4,18 +4,21 @@ extends Node2D
 
 onready var gameController = get_node("/root/GameController")
 
-var exitTo = Vector2(0,0)
-var exitFrom = Vector2(0,0)
+var leftTownAt = Vector2(0,0)
+var toCaves = Vector2(0,0)
+var toGraveyard = Vector2(0,0)
+var toForest = Vector2(0,0)
+var toSwamp = Vector2(0,0)
+
+var outOfTown = false
+var inCaves = false
+var inGraveyard = false
+var inForest = false
+var inSwamp = false
 
 func _ready():
 
-	exitTo = gameController.exitTo
-	
 	SpawnPlayer()
-	
-	if gameController.exitTo > Vector2(0,0):
-		# SetPlayer()
-		pass
 
 func SpawnPlayer():
 
@@ -27,8 +30,6 @@ func SpawnPlayer():
 	if gameController.start == true:
 		gameController.player.position = Vector2(64, 384)
 		gameController.start = false
-	else:
-		return
+	# else:
+	# 	return
 
-func SetPlayer():
-	gameController.player.position = exitTo

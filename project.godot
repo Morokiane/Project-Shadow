@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameController="*res://scripts/GameController.gd"
+LevelController="*res://scripts/LevelController.gd"
 
 [display]
 
