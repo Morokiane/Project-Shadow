@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/UI/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/UI/DefaultTheme.tres" type="Theme" id=2]
+[ext_resource path="res://sprite/UI/Title.png" type="Texture" id=3]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 464.0
+margin_top = 248.0
+margin_right = 496.0
+margin_bottom = 292.0
+
+[node name="Startbtn" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 32.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 32, 12 )
+text = "New"
+
+[node name="Loadbtn" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 32, 12 )
+text = "Load"
+
+[node name="Quitbtn" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 32, 12 )
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_top = -0.295
+anchor_bottom = -0.286
+margin_top = 82.1
+margin_right = 320.0
+margin_bottom = 97.48
+text = "DRACENZOID"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_right = 8.0
+margin_bottom = 15.0
+text = "Alpha 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 384.0
+margin_top = 197.0
+margin_right = 576.0
+margin_bottom = 229.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Startbtn" to="." method="_on_Startbtn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Loadbtn" to="." method="_on_Loadbtn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quitbtn" to="." method="_on_Quitbtn_pressed"]

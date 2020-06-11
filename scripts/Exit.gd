@@ -8,18 +8,16 @@ onready var player = gameController.player
 export(String, FILE, "*.tscn") var levelPath = ""
 # export(String, FILE, "*.tscn") var currentLevel = ""
 
+export var destination = Vector2()
+
 var inDoor = false
-var exitX = position.x
-var exitY = position.y
+# var exitX = position.x
+# var exitY = position.y
 var exit = Vector2(0,0)
 
 func _ready():
 	
-	exitX = self.position.x
-	exitY = self.position.y
-
 	exit = self.position
-	print (exitX, exitY)
 
 # func _process(_delta):
 # 	if Input.is_action_just_pressed("interact") && inDoor == true:
@@ -36,11 +34,19 @@ func _on_Door_body_exited(body):
 
 func WriteCoords():
 
-	if levelController.outOfTown == true:
-		levelController.outOfTown = false
-	else:
-		levelController.leftTownAt = exit
-		levelController.outOfTown = true
+	levelController.destination = destination
+	# levelController.outOfTown = true
+	# destination = levelController.destination
+	# destination = Vector2(0,0)
+	# print(destination)
+	# levelController.levelSpawns = destination
+	
+	# if levelController.outOfTown == true:
+	# 	levelController.outOfTown = false
+	# else:
+	# 	levelController.leftTownAt = exit
+	# 	levelController.outOfTown = true
+
 	#print(get_position_in_parent())
 	# call_deferred("LoadLevel")
 	# currentL = player.position
@@ -54,4 +60,5 @@ func WriteCoords():
 func LoadLevel():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(levelPath)
+
 	# player.position = exit

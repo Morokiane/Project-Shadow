@@ -6,3 +6,20 @@ Color value 1
 black .4,.4,.4
 
 export(String) var text = "Slider" setget set_text
+
+LevelController
+
+var toCaves = Vector2 (0,0)
+var toGraveyard = Vector2 (0,0)
+var toForest = Vector2 (0,0)
+
+The exit doors will send the coordinates to these variables.
+
+var inCaves = false
+var inGraveyard = false
+var inForest = false
+
+The exit doors will set these bools so the level controller will know where to place the player when they go back to town
+
+if inCaves == true:
+	player.position = toCaves

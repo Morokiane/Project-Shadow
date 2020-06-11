@@ -204,6 +204,10 @@ func Cheats():
 	if Input.is_action_just_pressed("lanterncheat"):
 		gameController.hasLantern = true
 
+	if Input.is_action_just_pressed("key"):
+		gameController.diamondKey = true
+		print ("Diamond Key aquired")
+
 func Item():
 	var oilAmount = Vector2.ZERO
 
