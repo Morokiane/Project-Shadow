@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Warp.gd" type="Script" id=1]
 [ext_resource path="res://sprite/doorfront.png" type="Texture" id=2]
+[ext_resource path="res://sprite/HUD/door.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 64 )
@@ -16,5 +17,10 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -64 )
 shape = SubResource( 1 )
+
+[node name="door" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -155 )
+texture = ExtResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]
