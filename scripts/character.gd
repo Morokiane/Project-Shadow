@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var accel = 512
 export var maxSpeed = 90
 export var friction = 0.25
-export var gravity = 200
+export var gravity = 400 #was 200
 export var jumpForce = 128
 export var maxSlope = 46
 export var canDie = false
@@ -134,7 +134,7 @@ func UpdateAnimL(pos):
 		animation.play("jumpL")
 
 func Move(pos):
-	if canMove != false:
+	if canMove == true:
 		var wasInAir = not is_on_floor()
 		var wasOnFloor = is_on_floor()
 		var lastPosition = position

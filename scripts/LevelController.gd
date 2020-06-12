@@ -22,7 +22,7 @@ onready var gameController = get_node("/root/GameController")
 var destination = Vector2()
 
 func _ready():
-
+	# pass
 	# if gameController.startMenu == false:
 	SpawnPlayer()
 

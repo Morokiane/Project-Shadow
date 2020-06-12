@@ -7,6 +7,7 @@ func _ready():
 	
 	if gameController.start == false:
 		gameController.player.position = levelController.destination
+		print (levelController.destination)
 		
 	else:
 		gameController.player.position = Vector2(64, 384)

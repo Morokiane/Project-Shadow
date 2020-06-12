@@ -17,6 +17,20 @@ tracks/0/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1275, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 5 )
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Reset"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "up"
@@ -30,6 +44,20 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 1275, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 5 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Reset"
+} ]
 }
 
 [sub_resource type="Curve2D" id=3]

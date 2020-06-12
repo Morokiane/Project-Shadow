@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var gameController = get_node("/root/GameController")
 onready var anim = $AnimationPlayer
 onready var animSprite = $KinematicBody2D/AnimatedSprite
 
@@ -10,10 +11,28 @@ var canPressButton = false
 func _process(_delta):
 	if Input.is_action_just_pressed("interact") && canPressButton == true && atTop == true:
 		# emit_signal("turnOn")
-		anim.play("down")
-		animSprite.play("down")
+		GoDown()
+	elif Input.is_action_just_pressed("interact") && canPressButton == true && atTop == false:
+		
+		GoUp()
 		# #print (animSprite)
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		canPressButton = true
+
+func GoDown():
+	# gameController.player.justJumped = true
+	anim.play("down")
+	animSprite.play("down")
+	atTop = false
+
+func GoUp():
+	# gameController.player.justJumped = true
+	anim.play("up")
+	animSprite.play("up")
+	atTop = true
+
+func Reset():
+	# gameController.player.justJumped = false
+	animSprite.play("off")
