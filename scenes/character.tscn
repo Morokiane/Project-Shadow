@@ -196,6 +196,7 @@ polygon = PoolVector2Array( -8, -73, -8, -68, -6, -54, -6, -40, -6, -26, -6, -5,
 z_index = 1
 collision_mask = 9
 script = ExtResource( 2 )
+lightSpeed = 0.1
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -56.6183 )
@@ -205,6 +206,7 @@ hframes = 19
 frame = 11
 
 [node name="GhostTrail" parent="Sprite" instance=ExtResource( 3 )]
+visible = false
 texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="Sprite"]

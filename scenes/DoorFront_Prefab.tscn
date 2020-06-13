@@ -18,9 +18,10 @@ texture = ExtResource( 2 )
 position = Vector2( 0, -64 )
 shape = SubResource( 1 )
 
-[node name="door" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -155 )
+[node name="Indicator" type="Node2D" parent="."]
+
+[node name="door" type="Sprite" parent="Indicator"]
+position = Vector2( 0, -156 )
 texture = ExtResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]

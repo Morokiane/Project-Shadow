@@ -1,3 +1,7 @@
+create a drop down list in inspector
+enum DROPOFF { linear,square,none }
+export(DROPOFF) var dropoff = DROPOFF.linear
+
 idle: 1-30
 walk cycle frames: 35 - 53 
 

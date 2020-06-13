@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprite/light/crystal.png" type="Texture" id=1]
+[ext_resource path="res://sprite/bg/crystal.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float refractionMagnitude = 30.0;
+
+void fragment(){
+	vec3 refraction = - texture(NORMAL_TEXTURE, UV).rgb * vec3(1.0,-1.0,1.0);
+	vec4 textureRead = texture(TEXTURE, UV);
+	vec4 offsetScreenRead = textureLod(SCREEN_TEXTURE, SCREEN_UV + refraction.rg/refractionMagnitude, 0.0);
+	
+	if (textureRead.a > 0.04) {
+		COLOR = offsetScreenRead;
+	}
+	else {
+		COLOR = textureRead;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/refractionMagnitude = 30.0
+
+[node name="Crystal" type="Sprite"]
+material = SubResource( 2 )
+position = Vector2( 0, -32.174 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+energy = 3.0

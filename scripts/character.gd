@@ -13,6 +13,8 @@ export (float) var lightSpeed = .01
 export var lanternScale = Vector2(2,2)
 export var lightCanScale = true
 
+var canDuck = true
+var canJump = true
 var motion = Vector2.ZERO
 var snap = Vector2.ZERO
 var justJumped = false
@@ -80,15 +82,15 @@ func GetMovement(delta, pos):
 		motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 
 func Duck():
-	if Input.is_action_pressed("Left Analog - Down") && gameController.hasLantern == true:
-		animation.play("duckL")
-		canMove = false
-		
-	elif Input.get_action_strength("Left Analog - Down") && gameController.hasLantern == false: 
-		animation.play("duck")
-		canMove = false
-	else:
-		canMove = true
+	if canDuck == true:
+		if Input.is_action_pressed("Left Analog - Down") && gameController.hasLantern == true:
+			animation.play("duckL")
+			canMove = false	
+		elif Input.get_action_strength("Left Analog - Down") && gameController.hasLantern == false: 
+			animation.play("duck")
+			canMove = false
+		else:
+			canMove = true
 
 func Friction(pos):
 	if pos.x == 0:
@@ -99,14 +101,15 @@ func UpdateSnap():
 		snap = Vector2.DOWN
 
 func Jump():
-	if is_on_floor():
-		if Input.is_action_just_pressed("Jump"):
-			motion.y = -jumpForce
-			justJumped = true
-			snap = Vector2.ZERO
-	else:
-		if Input.is_action_just_released("Jump") && motion.y < - jumpForce/2:
-			motion.y = -jumpForce/2;
+	if canJump == true:
+		if is_on_floor():
+			if Input.is_action_just_pressed("Jump"):
+				motion.y = -jumpForce
+				justJumped = true
+				snap = Vector2.ZERO
+		else:
+			if Input.is_action_just_released("Jump") && motion.y < - jumpForce/2:
+				motion.y = -jumpForce/2;
 
 func Gravity(delta):
 	if not is_on_floor():
@@ -190,6 +193,9 @@ func LanternScale(delta):
 		else:
 			lightCanScale = true
 			timer.stop()
+	
+	if lanternScale < Vector2(0.75,0.75):
+		VisualServer.set_default_clear_color(Color.black)
 
 func KillPlayer():
 	print ("dead")
