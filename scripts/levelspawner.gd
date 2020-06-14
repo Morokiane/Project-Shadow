@@ -23,7 +23,8 @@ func _ready():
 			VisualServer.set_default_clear_color(Color("242424"))
 
 		BGCOLOR.test:
-			ColorTest()
+			VisualServer.set_default_clear_color(Color("258963"))
+			# ColorTest()
 
 	# VisualServer.set_default_clear_color(Color.black)
 	
@@ -35,6 +36,6 @@ func _ready():
 		gameController.player.position = Vector2(64, 384)
 		gameController.start = false
 
-func ColorTest():
+# func ColorTest():
 
-	set_modulate(Color"242424"))
+# 	set_modulate(Color"242424"))
