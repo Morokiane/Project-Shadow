@@ -29,7 +29,7 @@ onready var animation = $AnimationPlayer
 onready var timer = $Timer
 onready var lanternLight = $Sprite/Light2D
 onready var gameController = get_node("/root/GameController")
-onready var levelController = get_node("/root/LevelController") #only here to reset character
+onready var characterController = get_node("/root/CharacterController") #only here to reset character
 
 func _ready():
 	gameController.RegisterPlayer(self) #allows access to player from other scripts
@@ -216,7 +216,7 @@ func Cheats():
 		print ("Diamond Key aquired")
 
 	if Input.is_action_just_pressed("reset"):
-		gameController.player.position = levelController.destination
+		gameController.player.position = characterController.destination
 
 func Item():
 	var oilAmount = Vector2.ZERO

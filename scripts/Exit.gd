@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var gameController = get_node("/root/GameController")
-onready var levelController = get_node("/root/LevelController")
+onready var characterController = get_node("/root/CharacterController")
 onready var player = gameController.player
 
 # export (NodePath) var currentL = null
@@ -34,7 +34,7 @@ func _on_Door_body_exited(body):
 
 func WriteCoords():
 
-	levelController.destination = destination
+	characterController.destination = destination
 	# levelController.outOfTown = true
 	# destination = levelController.destination
 	# destination = Vector2(0,0)

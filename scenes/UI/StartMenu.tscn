@@ -21,11 +21,11 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 400.0
+margin_left = 464.0
 margin_top = 248.0
-margin_right = 432.0
+margin_right = 496.0
 margin_bottom = 292.0
-rect_scale = Vector2( 5, 5 )
+rect_scale = Vector2( 3, 3 )
 alignment = 1
 
 [node name="Startbtn" type="Button" parent="CenterContainer/VBoxContainer"]
@@ -80,6 +80,7 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Startbtn" to="." method="_on_Startbtn_pressed"]

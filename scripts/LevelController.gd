@@ -1,41 +1,41 @@
 extends Node2D
 
-# export(String, FILE, "*.tscn") var exitCoord = ""
-
 onready var gameController = get_node("/root/GameController")
+onready var characterController = get_node("/root/CharacterController")
 
-#these array's will hold the coordinates for the levels where the player will spawn when level is loaded
-# var townSpawns = [Vector2(64, 384), Vector2(200,200)]
-# var levelSpawns = [Vector2(-82.648,0)]
-
-# var toCaves = Vector2(0,0)
-# var toGraveyard = Vector2(0,0)
-# var toForest = Vector2(0,0)
-# var toSwamp = Vector2(0,0)
-
-# var outOfTown = false
-# var inCaves = false
-# var inGraveyard = false
-# var inForest = false
-# var inSwamp = false
-
-var destination = Vector2()
+# creates drop down list in inspector
+enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}
+export(BGCOLOR) var color = BGCOLOR.black
 
 func _ready():
-	# pass
-	# if gameController.startMenu == false:
-	SpawnPlayer()
 
-func SpawnPlayer():
+	match color:
+		BGCOLOR.black:
+			VisualServer.set_default_clear_color(Color("000000"))
 
-	var scene = load("res://scenes/Player.tscn")	## When this block of code is under 
-	var player = scene.instance()					## the if it breaks the transition 
-	add_child(player)								## to other levels.
-	print("player was created")
-	
-	# if gameController.start == true:
-	# 	gameController.player.position = Vector2(64, 384)
-	# 	gameController.start = false
+		BGCOLOR.darkergray:
+			VisualServer.set_default_clear_color(Color("040404"))
+
+		BGCOLOR.darkgray:
+			VisualServer.set_default_clear_color(Color("080808"))
 		
-	# else:
-	# 	return
+		BGCOLOR.mediumgray:
+			VisualServer.set_default_clear_color(Color("242424"))
+
+		BGCOLOR.test:
+			VisualServer.set_default_clear_color(Color("258963"))
+			# ColorTest()
+
+	# VisualServer.set_default_clear_color(Color.black)
+	
+	if gameController.start == false:
+		gameController.player.position = characterController.destination
+		print (characterController.destination)
+		
+	else:
+		gameController.player.position = Vector2(64, 384)
+		gameController.start = false
+
+# func ColorTest():
+
+# 	set_modulate(Color"242424"))
