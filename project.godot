@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Project Shadow"
-run/main_scene="res://scenes/levels/Town.tscn"
+run/main_scene="res://scenes/UI/StartMenu.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 

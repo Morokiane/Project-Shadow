@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Camera2D" type="Camera2D" groups=[
+"camera",
+]]
+position = Vector2( 0, -142 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+drag_margin_h_enabled = true

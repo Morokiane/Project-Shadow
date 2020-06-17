@@ -57,20 +57,21 @@ func _process(_delta):
 		
 func _physics_process(delta):
 
-	justJumped = false
-	var pos = GetPosition()
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		get_tree().quit()
-	GetMovement(delta, pos)
-	Friction(pos)
-	UpdateSnap()
-	Jump()
-	Gravity(delta)
-	#UpdateAnim(pos)
-#	UpdateAnimL(pos)
-	Move(pos)
-	Duck()
-	LanternScale(delta)
+	if gameController.start != true:
+		justJumped = false
+		var pos = GetPosition()
+	#	if Input.is_action_just_pressed("ui_cancel"):
+	#		get_tree().quit()
+		GetMovement(delta, pos)
+		Friction(pos)
+		UpdateSnap()
+		Jump()
+		Gravity(delta)
+		#UpdateAnim(pos)
+	#	UpdateAnimL(pos)
+		Move(pos)
+		Duck()
+		LanternScale(delta)
 
 func GetPosition():
 	var pos = Vector2.ZERO

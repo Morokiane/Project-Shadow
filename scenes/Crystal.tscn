@@ -25,7 +25,9 @@ void fragment(){
 shader = SubResource( 1 )
 shader_param/refractionMagnitude = 30.0
 
-[node name="Crystal" type="Sprite"]
+[node name="Crystal" type="Sprite" groups=[
+"lights",
+]]
 material = SubResource( 2 )
 position = Vector2( 0, -32.174 )
 texture = ExtResource( 2 )

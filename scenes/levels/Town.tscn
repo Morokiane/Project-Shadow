@@ -240,7 +240,7 @@ texture = ExtResource( 27 )
 modulate = Color( 1, 1, 1, 0.752941 )
 position = Vector2( -42, 63.5 )
 scale = Vector2( 1.22727, 0.703125 )
-frame = 5
+frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -397,11 +397,11 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 51 )]
 position = Vector2( 4008, 342 )
 z_index = 1
-frame = 10
+frame = 11
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
 position = Vector2( 3298, -801 )
-frame = 10
+frame = 11
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 52 )]
@@ -425,7 +425,7 @@ texture = ExtResource( 33 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 66 )]
 position = Vector2( 6585, 382 )
-frame = 135
+frame = 95
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -629,7 +629,6 @@ texture = ExtResource( 6 )
 
 [node name="candle" parent="Background" instance=ExtResource( 57 )]
 position = Vector2( 16, 885 )
-frame = 0
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 61 )]
 position = Vector2( 5715, 325 )
@@ -656,7 +655,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 22 )
-frame = 8
+frame = 9
 playing = true
 __meta__ = {
 "_edit_lock_": true

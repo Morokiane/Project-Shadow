@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/UI/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/DefaultTheme.tres" type="Theme" id=2]
 [ext_resource path="res://sprite/UI/Title.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 4 )
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -21,30 +24,29 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 464.0
-margin_top = 248.0
-margin_right = 496.0
-margin_bottom = 292.0
-rect_scale = Vector2( 3, 3 )
+margin_left = 455.0
+margin_top = 233.0
+margin_right = 505.0
+margin_bottom = 307.0
 alignment = 1
 
 [node name="Startbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 32.0
-margin_bottom = 12.0
+margin_right = 50.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 32, 12 )
 text = "New"
 
 [node name="Loadbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 16.0
-margin_right = 32.0
-margin_bottom = 28.0
+margin_top = 26.0
+margin_right = 50.0
+margin_bottom = 48.0
 rect_min_size = Vector2( 32, 12 )
 text = "Load"
 
 [node name="Quitbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 32.0
-margin_right = 32.0
-margin_bottom = 44.0
+margin_top = 52.0
+margin_right = 50.0
+margin_bottom = 74.0
 rect_min_size = Vector2( 32, 12 )
 text = "Quit"
 
@@ -62,9 +64,8 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_right = 8.0
-margin_bottom = 15.0
-rect_scale = Vector2( 3, 3 )
+margin_right = 71.0
+margin_bottom = 24.0
 text = "Alpha 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,17 +73,28 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 90.0
-margin_top = 149.0
+margin_top = 107.0
 margin_right = 282.0
-margin_bottom = 181.0
+margin_bottom = 132.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 480, 271 )
+current = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Startbtn" to="." method="_on_Startbtn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Loadbtn" to="." method="_on_Loadbtn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quitbtn" to="." method="_on_Quitbtn_pressed"]
