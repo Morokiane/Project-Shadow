@@ -7,6 +7,7 @@ export var gravity = 400 #was 200
 export var jumpForce = 128
 export var maxSlope = 46
 export var canDie = false
+export var timeLeft = 10
 
 #controls light scaling
 export (float) var lightSpeed = .01
@@ -23,6 +24,7 @@ var setToggle = false
 var energy = 3 #needed?
 var movingRight = true
 var movingLeft = false
+var startTime = false
 
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
@@ -30,11 +32,15 @@ onready var timer = $Timer
 onready var lanternLight = $Sprite/Light2D
 onready var gameController = get_node("/root/GameController")
 onready var characterController = get_node("/root/CharacterController") #only here to reset character
+onready var cameraFollow = $CameraFollow
 
 func _ready():
 	gameController.RegisterPlayer(self) #allows access to player from other scripts
 #	$"/root/GameController".RegisterPlayer(self)
-	timer.set_wait_time(5)
+	timer.set_wait_time(timeLeft)
+	if canDie == true:
+		timer.start()
+	# cameraFollow.remote_path = gameController.WorldCamera.get_path()
 
 func _process(_delta):
 	
@@ -72,6 +78,15 @@ func _physics_process(delta):
 		Move(pos)
 		Duck()
 		LanternScale(delta)
+
+func Save():
+	var saveDictionary = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"position_x" : position.x,
+		"position_y" : position.y
+	}
+	return saveDictionary
 
 func GetPosition():
 	var pos = Vector2.ZERO
@@ -191,10 +206,12 @@ func LanternScale(delta):
 		if lanternScale < Vector2(0,0):
 			lightCanScale = false
 			timer.start()
-			#print("in light")
+			print("no light")
+			
 		else:
 			lightCanScale = true
 			timer.stop()
+			# print("in the light")
 	
 	if lanternScale < Vector2(0.75,0.75):
 		VisualServer.set_default_clear_color(Color.black)
@@ -219,6 +236,15 @@ func Cheats():
 	if Input.is_action_just_pressed("reset"):
 		gameController.player.position = characterController.destination
 
+	if Input.is_action_just_pressed("save"):
+		SaveLoad.SaveGame()
+
+	if Input.is_action_just_pressed("load"):
+		SaveLoad.LoadGame()
+
+	if Input.is_action_just_pressed("timer"):
+		print(timer.start())
+
 func Item():
 	var oilAmount = Vector2.ZERO
 
@@ -233,3 +259,9 @@ func Item():
 		energy = lanternLight.energy + oilAmount
 		lanternLight.set_energy (energy)
 		# #print (energy)
+
+func TimerControl():
+	if startTime == true:
+		timer.start()
+	else:
+		timer.stop()

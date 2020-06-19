@@ -3,6 +3,7 @@ extends Node2D
 onready var gameController = get_node("/root/GameController")
 onready var characterController = get_node("/root/CharacterController")
 
+export var playerCanDie = false
 # creates drop down list in inspector
 enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}
 export(BGCOLOR) var color = BGCOLOR.black
@@ -35,6 +36,9 @@ func _ready():
 	else:
 		gameController.player.position = Vector2(64, 384)
 		gameController.start = false
+	
+	if playerCanDie == true:
+		gameController.player.canDie = true
 
 # func ColorTest():
 

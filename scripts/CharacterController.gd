@@ -28,9 +28,9 @@ func _ready():
 
 func SpawnPlayer():
 
-	var scene = load("res://scenes/Player.tscn")	## When this block of code is under 
-	var player = scene.instance()					## the if it breaks the transition 
-	add_child(player)								## to other levels.
+	var scene = load("res://scenes/Player.tscn")
+	var player = scene.instance()
+	add_child(player)
 	print("player was created")
 	
 	# if gameController.start == true:

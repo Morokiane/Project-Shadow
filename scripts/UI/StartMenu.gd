@@ -1,7 +1,10 @@
 extends Control
 
+onready var gameController = get_node("/root/GameController")
+
 func _ready():
 	VisualServer.set_default_clear_color(Color("000000"))
+	gameController.player.canDie = false
 
 func _on_Startbtn_pressed():
 	# SoundFx.Play("click")
@@ -9,7 +12,7 @@ func _on_Startbtn_pressed():
 	get_tree().change_scene("res://scenes/levels/Town.tscn")
 	
 func _on_Loadbtn_pressed():
-	pass # Replace with function body.
+	SaveLoad.isLoading = true
 
 func _on_Quitbtn_pressed():
 	get_tree().quit()

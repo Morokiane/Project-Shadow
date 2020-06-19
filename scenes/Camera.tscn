@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/camera.gd" type="Script" id=1]
 
 [node name="Camera2D" type="Camera2D" groups=[
 "camera",
@@ -7,3 +9,4 @@ position = Vector2( 0, -142 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
 drag_margin_h_enabled = true
+script = ExtResource( 1 )

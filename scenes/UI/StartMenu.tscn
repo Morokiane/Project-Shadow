@@ -16,6 +16,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 480, 271 )
+current = true
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -90,11 +95,6 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position = Vector2( 480, 271 )
-current = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Startbtn" to="." method="_on_Startbtn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Loadbtn" to="." method="_on_Loadbtn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quitbtn" to="." method="_on_Quitbtn_pressed"]

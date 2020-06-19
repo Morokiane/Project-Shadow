@@ -196,7 +196,8 @@ polygon = PoolVector2Array( -8, -73, -8, -68, -6, -54, -6, -40, -6, -26, -6, -5,
 z_index = 1
 collision_mask = 9
 script = ExtResource( 2 )
-lightSpeed = 0.001
+timeLeft = 5
+lightSpeed = 0.1
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -56.6183 )

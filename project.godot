@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://save/SaveGame.gd"
+} ]
 _global_script_class_icons={
-
+"SaveGame": ""
 }
 
 [application]
@@ -19,11 +24,13 @@ config/name="Project Shadow"
 run/main_scene="res://scenes/UI/StartMenu.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
+config/version="alpha 1"
 
 [autoload]
 
 GameController="*res://scripts/GameController.gd"
 CharacterController="*res://scripts/CharacterController.gd"
+SaveLoad="*res://scripts/SaveLoad.gd"
 
 [display]
 
@@ -155,6 +162,21 @@ key={
 reset={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+save={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+ ]
+}
+load={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
+ ]
+}
+timer={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"unicode":0,"echo":false,"script":null)
  ]
 }
 
