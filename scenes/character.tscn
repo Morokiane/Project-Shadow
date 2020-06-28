@@ -198,6 +198,7 @@ collision_mask = 9
 script = ExtResource( 2 )
 timeLeft = 5
 lightSpeed = 0.1
+lightCanScale = false
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -56.6183 )

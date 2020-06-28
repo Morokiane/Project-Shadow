@@ -3,15 +3,12 @@ extends Node2D
 onready var gameController = get_node("/root/GameController")
 onready var characterController = get_node("/root/CharacterController")
 
-export var playerCanDie = false
-# export (Script) var gameSaveClass
-
 # creates drop down list in inspector
 enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}
-export(BGCOLOR) var color = BGCOLOR.black
+export(BGCOLOR) var color = BGCOLOR.test
 
 func _ready():
-
+	
 	match color:
 		BGCOLOR.black:
 			VisualServer.set_default_clear_color(Color("000000"))
@@ -30,18 +27,15 @@ func _ready():
 			# ColorTest()
 
 	# VisualServer.set_default_clear_color(Color.black)
-	
 	if gameController.start == false:
 		gameController.player.position = characterController.destination
 		print (characterController.destination)
-		
+		gameController.inSaveRoom = true
 	else:
-		gameController.player.position = Vector2(64, 384)
+		gameController.player.position = Vector2(338, 0.994)
 		gameController.start = false
-	
-	if playerCanDie == true:
-		gameController.player.canDie = true
-
+		gameController.inSaveRoom = true
+		SaveLoad.LoadGame()
 # func ColorTest():
 
 # 	set_modulate(Color"242424"))

@@ -12,7 +12,9 @@ func _on_Startbtn_pressed():
 	get_tree().change_scene("res://scenes/levels/Town.tscn")
 	
 func _on_Loadbtn_pressed():
-	SaveLoad.isLoading = true
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://scenes/levels/SaveRoom.tscn")
+	# SaveLoad.isLoading = true
 
 func _on_Quitbtn_pressed():
 	get_tree().quit()

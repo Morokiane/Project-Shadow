@@ -238,9 +238,11 @@ func Cheats():
 
 	if Input.is_action_just_pressed("save"):
 		SaveLoad.SaveGame()
+		# pass
 
 	if Input.is_action_just_pressed("load"):
-		SaveLoad.LoadGame()
+		print(gameController.returnLevel)
+		# pass
 
 	if Input.is_action_just_pressed("timer"):
 		print(timer.start())

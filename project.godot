@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="Project Shadow"
 run/main_scene="res://scenes/UI/StartMenu.tscn"
+config/custom_user_dir_name="ProjectShadow"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 config/version="alpha 1"
