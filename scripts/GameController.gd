@@ -11,7 +11,7 @@ var hasLantern = false
 # var destination = Vector2()
 var exitSave = Vector2(0,0)
 var inSaveRoom = false
-export (String, FILE, "*.tscn") var returnLevel = ""
+var returnLevel = ""
 
 var restoreState = {}
 
@@ -33,6 +33,8 @@ func GotLantern():
 func RegisterPlayer(in_player):
 	player = in_player
 
+""" Save function pulls from the current variables and stores in a dictionary
+that is written to the file specified in SaveLoad.gd """
 func Save():
 	var gameState = {
 		"diamondkey" : diamondKey,
@@ -44,6 +46,7 @@ func Save():
 	}
 	return gameState
 
+# Load function restores the data from the file and sets the variables
 func Load():
 
 	diamondKey = restoreState["diamondkey"]

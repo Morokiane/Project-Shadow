@@ -6,30 +6,21 @@ onready var player = gameController.player
 
 # export (NodePath) var currentL = null
 export(String, FILE, "*.tscn") var returnLevel = ""
-# var fuckoff = gameController.returnLevel
-
 export var destination = Vector2()
 
 var inDoor = false
 var inSaveRoom = false
 var exitX = 0.0
 var exitY = 0.0
+var confirmReturn = ""
 
 func _ready():
 
 	exitX = self.position.x
 	exitY = self.position.y
-	
-	print (exitX)
-
 	exitX = exitX - 30.0
-
-	print (exitX)
-
-# func _process(_delta):
-# 	if Input.is_action_just_pressed("interact") && inDoor == true:
-# 		get_tree().call_group("player", "MoveTo", get_node(moveTarget).position)
-
+	print (gameController.exitSave)
+	
 func _on_Door_body_entered(body):
 	if body.is_in_group("player"):
 		inDoor = true
@@ -41,34 +32,16 @@ func _on_Door_body_exited(body):
 
 func WriteCoords():
 
-	gameController.exitSave = Vector2(exitX, exitY)
-	gameController.returnLevel = returnLevel
-
 	if gameController.inSaveRoom == false:
-		characterController.destination = destination
+		gameController.returnLevel = returnLevel
+		gameController.exitSave = Vector2(exitX, exitY)
+		LoadLevel()
 	else:
-		characterController.destination = gameController.exitSave
-	# levelController.outOfTown = true
-	# destination = levelController.destination
-	# destination = Vector2(0,0)
-	# print(destination)
-	# levelController.levelSpawns = destination
-	
-	# if levelController.outOfTown == true:
-	# 	levelController.outOfTown = false
-	# else:
-	# 	levelController.leftTownAt = exit
-	# 	levelController.outOfTown = true
+		confirmReturn = gameController.returnLevel
+		print(gameController.exitSave)
+		LoadLevel()
 
-	#print(get_position_in_parent())
-	# call_deferred("LoadLevel")
-	# currentL = player.position
-
-	# var get_node(currentL).playerExit = pp
-	# var currentL.playerExit = player.position
-	# #print (currentL)
-	# gameController.player.queue_free()
-	LoadLevel()
+	# LoadLevel()
 
 func LoadLevel():
 
@@ -76,8 +49,5 @@ func LoadLevel():
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/levels/SaveRoom.tscn")
 	else:
-		gameController.inSaveRoom = false
 		# warning-ignore:return_value_discarded
-		get_tree().change_scene(gameController.returnLevel)
-	
-	# player.position = exit
+		get_tree().change_scene(confirmReturn)

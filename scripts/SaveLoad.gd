@@ -16,10 +16,12 @@ func SaveGame():
 
 	var file = File.new()
 	var data = gameController.Save()
+	# var readabledata = gameController.Save()
 	var error = file.open(savePath, File.WRITE)
 	# var error = file.open_encrypted_with_pass(savePath, File.WRITE, OS.get_unique_id())
 	if error == OK:
 		file.store_var(data)
+		# file.store_line(to_json(readabledata))
 		file.close()
 
 func LoadGame():

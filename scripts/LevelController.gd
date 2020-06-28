@@ -31,13 +31,20 @@ func _ready():
 
 	# VisualServer.set_default_clear_color(Color.black)
 	
-	if gameController.start == false:
+	if gameController.start == false && gameController.inSaveRoom == false:
 		gameController.player.position = characterController.destination
-		print (characterController.destination)
+		# print (characterController.destination)
+		print ("room spawn")
 		
-	else:
+	elif gameController.start == true && gameController.inSaveRoom == false:
 		gameController.player.position = Vector2(64, 384)
 		gameController.start = false
+		print ("new spawn")
+			
+	else:
+		gameController.player.position = gameController.exitSave
+		gameController.inSaveRoom = false
+		print ("leaving save spawn")
 	
 	if playerCanDie == true:
 		gameController.player.canDie = true

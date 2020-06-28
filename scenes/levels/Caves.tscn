@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/SaveDoor.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-blend_mode = 3
+blend_mode = 2
 light_mode = 2
 
 [node name="Caves" type="Node2D"]
