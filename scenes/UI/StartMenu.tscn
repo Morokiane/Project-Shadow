@@ -29,29 +29,29 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 455.0
-margin_top = 233.0
-margin_right = 505.0
-margin_bottom = 307.0
+margin_left = 452.0
+margin_top = 231.0
+margin_right = 507.0
+margin_bottom = 308.0
 alignment = 1
 
 [node name="Startbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 50.0
-margin_bottom = 22.0
+margin_right = 55.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 32, 12 )
 text = "New"
 
 [node name="Loadbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 26.0
-margin_right = 50.0
-margin_bottom = 48.0
+margin_top = 27.0
+margin_right = 55.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 32, 12 )
 text = "Load"
 
 [node name="Quitbtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 50.0
-margin_bottom = 74.0
+margin_top = 54.0
+margin_right = 55.0
+margin_bottom = 77.0
 rect_min_size = Vector2( 32, 12 )
 text = "Quit"
 

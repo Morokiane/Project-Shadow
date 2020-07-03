@@ -1,7 +1,6 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=96 format=2]
 
-[ext_resource path="res://scripts/Button.gd" type="Script" id=1]
-[ext_resource path="res://scripts/DrawBridge.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ButtonRG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprite/bg/Town/grass.png" type="Texture" id=3]
 [ext_resource path="res://sprite/town/cottage1.png" type="Texture" id=4]
 [ext_resource path="res://sprite/light/lightx128.png" type="Texture" id=5]
@@ -39,7 +38,6 @@
 [ext_resource path="res://sprite/rooms/gatehouse.png" type="Texture" id=37]
 [ext_resource path="res://sprite/town/gatehouse.png" type="Texture" id=38]
 [ext_resource path="res://sprite/bg/trees3.png" type="Texture" id=39]
-[ext_resource path="res://scenes/DiamondButton.tscn" type="PackedScene" id=40]
 [ext_resource path="res://scenes/Lantern.tscn" type="PackedScene" id=41]
 [ext_resource path="res://scenes/BG/SconceSide.tscn" type="PackedScene" id=42]
 [ext_resource path="res://scenes/key.tscn" type="PackedScene" id=43]
@@ -72,6 +70,9 @@
 [ext_resource path="res://scenes/UnderConstruction.tscn" type="PackedScene" id=70]
 [ext_resource path="res://scenes/BG/Lighthouse.tscn" type="PackedScene" id=71]
 [ext_resource path="res://scenes/SaveDoor.tscn" type="PackedScene" id=72]
+[ext_resource path="res://scenes/Items/Book.tscn" type="PackedScene" id=73]
+[ext_resource path="res://sprite/pickups/key-cavelever.png" type="Texture" id=74]
+[ext_resource path="res://scenes/Lever-key.tscn" type="PackedScene" id=75]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 120 )
@@ -169,6 +170,9 @@ script = ExtResource( 45 )
 playerCanDie = true
 color = 3
 
+[node name="Book" parent="." instance=ExtResource( 73 )]
+position = Vector2( 66, 897 )
+
 [node name="Light" parent="." instance=ExtResource( 46 )]
 visible = false
 position = Vector2( 96, 241 )
@@ -240,7 +244,7 @@ texture = ExtResource( 27 )
 
 [node name="fire" parent="Rooms/room1" instance=ExtResource( 50 )]
 modulate = Color( 1, 1, 1, 0.752941 )
-position = Vector2( -42, 63.5 )
+position = Vector2( -41, 63 )
 scale = Vector2( 1.22727, 0.703125 )
 frame = 6
 speed_scale = 2.0
@@ -255,7 +259,6 @@ __meta__ = {
 }
 
 [node name="Gate" parent="Rooms/gatehouse" instance=ExtResource( 49 )]
-visible = false
 position = Vector2( 303, 224 )
 z_index = 1
 
@@ -293,12 +296,10 @@ position = Vector2( 11, -69 )
 [node name="DrawBridge" parent="Items" instance=ExtResource( 44 )]
 position = Vector2( 5931, 407 )
 z_index = 3
-script = ExtResource( 2 )
 
 [node name="SconceSide" parent="Items/DrawBridge" instance=ExtResource( 42 )]
 position = Vector2( 1, -160 )
 z_index = 3
-frame = 1
 speed_scale = 3.0
 playing = true
 
@@ -307,12 +308,6 @@ position = Vector2( 0, 10 )
 texture = ExtResource( 5 )
 energy = 2.5
 shadow_enabled = true
-
-[node name="DiamondButton" parent="Items" instance=ExtResource( 40 )]
-position = Vector2( 5655, 384 )
-collision_layer = 8
-script = ExtResource( 1 )
-requiresKey = true
 
 [node name="key" parent="Items" instance=ExtResource( 43 )]
 position = Vector2( 1558, 1044 )
@@ -328,6 +323,9 @@ position = Vector2( -304, 383 )
 z_index = 2
 speed_scale = 2.0
 playing = true
+
+[node name="ButtonRG" parent="Items" instance=ExtResource( 1 )]
+position = Vector2( 5655, 384 )
 
 [node name="Background" type="Node" parent="."]
 
@@ -354,7 +352,6 @@ scroll_ignore_camera_zoom = true
 motion_scale = Vector2( 0.6, 0.6 )
 
 [node name="BGFog" parent="Background/ParallaxBackground/clouds" instance=ExtResource( 54 )]
-visible = false
 modulate = Color( 1, 1, 1, 0.376471 )
 position = Vector2( -778, -8231 )
 scale = Vector2( 3, 3 )
@@ -415,6 +412,9 @@ scale = Vector2( 0.8, 0.8 )
 position = Vector2( 1221.25, 139 )
 scale = Vector2( 0.922262, 1 )
 texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Owl" parent="Background/ParallaxBackground/09" instance=ExtResource( 59 )]
 position = Vector2( 1442, 197 )
@@ -428,7 +428,7 @@ texture = ExtResource( 33 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 66 )]
 position = Vector2( 6585, 382 )
-frame = 81
+frame = 89
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -482,6 +482,9 @@ texture = ExtResource( 3 )
 position = Vector2( 785, 139 )
 scale = Vector2( 0.657954, 1 )
 texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="silo" type="Sprite" parent="Background/ParallaxBackground/05"]
 position = Vector2( 2252.97, 220.102 )
@@ -494,6 +497,9 @@ position = Vector2( 5721.57, 206 )
 scale = Vector2( 0.418006, 0.418006 )
 z_index = -1
 texture = ExtResource( 36 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="moon" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.05, 0.05 )
@@ -532,6 +538,9 @@ __meta__ = {
 position = Vector2( 750, 74 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 23 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="trees2" type="Sprite" parent="Background/ParallaxBackground/pine trees"]
 position = Vector2( 750, 74 )
@@ -610,7 +619,6 @@ position = Vector2( 3078, 387 )
 texture = ExtResource( 16 )
 
 [node name="Fog" parent="Background" instance=ExtResource( 54 )]
-visible = false
 modulate = Color( 1, 1, 1, 0.376471 )
 position = Vector2( -778, -8231 )
 scale = Vector2( 3, 3 )
@@ -657,7 +665,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 22 )
-frame = 9
+frame = 18
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -755,10 +763,10 @@ moveTarget = NodePath("../../../Town/Doors/GHIn")
 position = Vector2( 9984, 384 )
 moveTarget = NodePath("../../../Town/Doors/GHOut")
 
-[node name="Exit" parent="." groups=[
+[node name="Exit" parent="Doors" groups=[
 "exit",
 ] instance=ExtResource( 69 )]
-position = Vector2( 473, 388 )
+position = Vector2( 11000, 1151 )
 levelPath = "res://scenes/levels/Caves.tscn"
 destination = Vector2( -82.648, 0 )
 
@@ -771,10 +779,18 @@ position = Vector2( 10367, 384 )
 z_index = 2
 
 [node name="SaveDoor" parent="." instance=ExtResource( 72 )]
-position = Vector2( 305.693, 390.581 )
+position = Vector2( -543, 810 )
 returnLevel = "res://scenes/levels/Town.tscn"
-[connection signal="area_entered" from="Items/DiamondButton" to="Items/DiamondButton" method="_on_DiamondButton_area_entered"]
-[connection signal="turnOn" from="Items/DiamondButton" to="Items/DrawBridge" method="_on_DiamondButton_turnOn"]
+
+[node name="key-cavelever" type="Sprite" parent="."]
+position = Vector2( 5150, 1013 )
+z_index = 1
+texture = ExtResource( 74 )
+
+[node name="lever-key" parent="." instance=ExtResource( 75 )]
+position = Vector2( 10789, 1152 )
+[connection signal="area_entered" from="Items/ButtonRG" to="Items/ButtonRG" method="_on_ButtonRG_area_entered"]
+[connection signal="turnOn" from="Items/ButtonRG" to="Items/DrawBridge" method="_on_ButtonRG_turnOn"]
 
 [editable path="Doors/DoortoTown"]
 

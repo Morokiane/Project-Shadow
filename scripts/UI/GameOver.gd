@@ -2,6 +2,7 @@ extends CenterContainer
 
 func _on_Newbtn_pressed():
 # warning-ignore:return_value_discarded
+	pass
 	# get_tree().change_scene("res://Scenes/World.tscn")
 	# SoundFx.Play("click")
 
