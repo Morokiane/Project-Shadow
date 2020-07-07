@@ -230,8 +230,7 @@ func Cheats():
 		gameController.hasLantern = true
 
 	if Input.is_action_just_pressed("key"):
-		gameController.diamondKey = true
-		print ("Diamond Key aquired")
+		print ("take this key out")
 
 	if Input.is_action_just_pressed("reset"):
 		gameController.player.position = characterController.destination

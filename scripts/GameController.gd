@@ -5,18 +5,14 @@ var player
 
 var start = true
 var drawBridgeOpen = false
+var gateOpen = false
 var hasLantern = false
-# var destination = Vector2()
 var exitSave = Vector2(0,0)
 var inSaveRoom = false
 var returnLevel = ""
 
-#keys
-var diamondKey = false
-var squareKey = false
-var leverKey = false
-var keyName
-
+#dictionaries
+var keys := {}
 var restoreState = {}
 
 func _ready():
@@ -41,7 +37,8 @@ func RegisterPlayer(in_player):
 that is written to the file specified in SaveLoad.gd """
 func Save():
 	var gameState = {
-		"diamondkey" : diamondKey,
+		# "diamondkey" : diamondKey, #this needs to be changes to the keys dictionary.
+		"Keys" : keys,
 		"bridge" : drawBridgeOpen,
 		"lantern" : hasLantern,
 		"exitsave" : exitSave,
@@ -53,7 +50,8 @@ func Save():
 # Load function restores the data from the file and sets the variables
 func Load():
 
-	diamondKey = restoreState["diamondkey"]
+	# diamondKey = restoreState["diamondkey"]
+	keys = restoreState["Keys"]
 	hasLantern = restoreState["lantern"]
 	drawBridgeOpen = restoreState["bridge"]
 	exitSave = restoreState["exitsave"]

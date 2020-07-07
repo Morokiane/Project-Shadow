@@ -7,15 +7,9 @@ func _ready():
 
 	get(keyName)
 	keyName = str2var (keyName)
-	print(keyName)
-	gameController.keyName = keyName
-	
+
 func _on_Key_body_entered(_body: PhysicsBody2D)->void:
 	
-	#print ("got it")
-	gameController.keyName = true
-	print (gameController.leverKey)
-	# gameController.keyName = true
+	gameController.keys[keyName] = true
 	queue_free()
-
-	
+	print (gameController.keys)
