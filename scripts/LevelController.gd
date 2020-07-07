@@ -4,7 +4,7 @@ onready var gameController = get_node("/root/GameController")
 onready var characterController = get_node("/root/CharacterController")
 
 export var playerCanDie = false
-# export (Script) var gameSaveClass
+# export (Script) var gameSaveClass #allows for another script to be added to an node
 
 # creates drop down list in inspector
 enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}

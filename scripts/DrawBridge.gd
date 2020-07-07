@@ -4,7 +4,6 @@ onready var gameController = get_node("/root/GameController")
 onready var anim = $AnimationPlayer
 
 func _ready():
-	print (anim)
 	if gameController.drawBridgeOpen == true:
 		_on_ButtonRG_turnOn()
 

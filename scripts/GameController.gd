@@ -1,17 +1,21 @@
 extends Node
 
 var player
-var WorldCamera = null
+# var WorldCamera = null
 
 var start = true
-var diamondKey = false
-var squareKey = false
 var drawBridgeOpen = false
 var hasLantern = false
 # var destination = Vector2()
 var exitSave = Vector2(0,0)
 var inSaveRoom = false
 var returnLevel = ""
+
+#keys
+var diamondKey = false
+var squareKey = false
+var leverKey = false
+var keyName
 
 var restoreState = {}
 

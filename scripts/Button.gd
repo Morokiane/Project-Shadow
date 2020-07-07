@@ -12,11 +12,12 @@ signal turnOn
 onready var gameController = get_node("/root/GameController")
 onready var anim = $AnimationPlayer
 
+export(String, FILE, "*.tscn") var requiredKey = ""
 var switchOn = false
 var canPressButton = false
 
 #key types
-""" var diamond = false
+var diamond = false
 
 # creates drop down list in inspector
 enum KEYTYPE {none, diamond, lever, square, triangle}
@@ -39,13 +40,16 @@ func _ready():
 			return
 
 		KEYTYPE.triangle:
-			return """
-
+			return
+	
 func _process(_area):
-	if Input.is_action_just_pressed("interact") && switchOn == false && canPressButton == true && gameController.diamondKey == true:
+	if Input.is_action_just_pressed("interact") && switchOn == false && canPressButton == true && gameController.keyName == true:
 		emit_signal("turnOn")
 		anim.play("switch")
 		switchOn = true
 
 func _on_ButtonRG_area_entered(_area):
 	canPressButton = true
+
+func Open():
+	pass
