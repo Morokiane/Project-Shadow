@@ -14,7 +14,7 @@ onready var anim = $AnimationPlayer
 
 # export(String, FILE, "*.tscn") var requiredKey = ""
 var switchOn = false
-var canPressButton = false
+var canUse = false
 
 export(String) var keyName = ""
 
@@ -46,23 +46,27 @@ func _ready():
 	get(keyName)
 	keyName = str2var (keyName)
 	# gameController.keyName = true
-	print(gameController.keys)
+	
 
 func _process(_area):
-	if Input.is_action_just_pressed("interact") && switchOn == false && canPressButton == true:
+	if Input.is_action_just_pressed("interact") && switchOn == false && canUse == true:
 		emit_signal("turnOn")
 		anim.play("unlocked")
 		switchOn = true
 
 # these functions need to be one and generic to take any type of interacting object
-func _on_ButtonRG_area_entered(_area):
+func _on_Interface_area_entered(_area):
+
+	print("area entered")
+	print(gameController.keys)
 	
-	if gameController.keys.has(keyName):
-		canPressButton = true
+	if gameController.keys.has(keyName) == true:
+		canUse = true
 		print("can use")
 
-func _on_Leverlocked_area_entered(_area):
+# func _on_Leverlocked_area_entered(_area):
 
-	if gameController.keys.has(keyName) == true: #check the game controller to see if the player picked up the required key
-		canPressButton = true
-		print("can use")
+# 	if gameController.keys.has(keyName) == true: #check the game controller to see if the player picked up the required key
+# 		canPressButton = true
+# 		print("can use")
+

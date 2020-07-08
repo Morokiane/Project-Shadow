@@ -19,7 +19,8 @@ script = ExtResource( 2 )
 color = 4
 
 [node name="Gate" parent="." instance=ExtResource( 6 )]
-position = Vector2( 397, 320 )
+position = Vector2( 384, 384 )
+barrierName = "caveGate"
 
 [node name="Crystal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 40, -30 )
@@ -31,12 +32,13 @@ texture = ExtResource( 4 )
 
 [node name="Cave_TileMap" parent="." instance=ExtResource( 1 )]
 material = SubResource( 1 )
+collision_layer = 0
 tile_data = PoolIntArray( -131075, 0, 3, -196608, 0, 196608, -196607, 0, 196609, -196606, 0, 196610, -65539, 0, 65539, -3, 0, 65539, 65533, 0, 0, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 2, 6, 0, 0, 7, 0, 196609, 8, 0, 196609, 9, 0, 196610, 131069, 0, 65536, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65538, 65542, 0, 65539, 196605, 0, 131072, 196606, 0, 131073, 196607, 0, 131073, 131072, 0, 131073, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131073, 131076, 0, 0, 131078, 0, 65539, 196612, 0, 131075, 196614, 0, 131075, 458745, 0, 196608, 458746, 0, 196609, 458747, 0, 196609, 458748, 0, 196609, 458749, 0, 196609, 458750, 0, 196609, 458751, 0, 196609, 393216, 0, 196609, 393217, 0, 196609, 393218, 0, 196609, 393219, 0, 196609, 393220, 0, 196609, 393221, 0, 196609, 393222, 0, 196609, 393223, 0, 196609, 393224, 0, 196609, 393225, 0, 196609, 393226, 0, 196609, 393227, 0, 196609, 393228, 0, 196610 )
 
-[node name="leverkey" parent="." instance=ExtResource( 7 )]
-position = Vector2( -165, 383 )
-
 [node name="Lever-locked" parent="." instance=ExtResource( 5 )]
-position = Vector2( 157, 384 )
-keyName = "leverKey"
-[connection signal="area_entered" from="Lever-locked" to="Lever-locked" method="_on_Leverlocked_area_entered"]
+position = Vector2( 249, 384 )
+collision_layer = 0
+
+[node name="Key" parent="." instance=ExtResource( 7 )]
+position = Vector2( -125, 384 )
+[connection signal="turnOn" from="Lever-locked" to="Gate" method="_on_Interface_turnOn"]

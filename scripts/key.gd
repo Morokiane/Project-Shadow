@@ -5,8 +5,11 @@ export(String) var keyName = ""
 
 func _ready():
 
-	get(keyName)
-	keyName = str2var (keyName)
+	if gameController.keys.has(keyName) == false:
+		get(keyName)
+		keyName = str2var (keyName)
+	else:
+		queue_free()
 
 func _on_Key_body_entered(_body: PhysicsBody2D)->void:
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/Button.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Interface.gd" type="Script" id=1]
 [ext_resource path="res://sprite sheets/key-lever.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -35,8 +35,9 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[node name="Lever-locked" type="Area2D"]
+[node name="Interface" type="Area2D"]
 script = ExtResource( 1 )
+keyName = "leverKey"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -45 )
@@ -50,3 +51,4 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/locked = SubResource( 2 )
 anims/unlocked = SubResource( 3 )
+[connection signal="area_entered" from="." to="." method="_on_Interface_area_entered"]

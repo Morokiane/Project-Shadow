@@ -13,6 +13,7 @@ var returnLevel = ""
 
 #dictionaries
 var keys := {}
+var levelState := {}
 var restoreState = {}
 
 func _ready():
@@ -39,7 +40,8 @@ func Save():
 	var gameState = {
 		# "diamondkey" : diamondKey, #this needs to be changes to the keys dictionary.
 		"Keys" : keys,
-		"bridge" : drawBridgeOpen,
+		# "bridge" : drawBridgeOpen,
+		"levelstate" : levelState,
 		"lantern" : hasLantern,
 		"exitsave" : exitSave,
 		"insaveroom" : inSaveRoom,
@@ -53,7 +55,8 @@ func Load():
 	# diamondKey = restoreState["diamondkey"]
 	keys = restoreState["Keys"]
 	hasLantern = restoreState["lantern"]
-	drawBridgeOpen = restoreState["bridge"]
+	# drawBridgeOpen = restoreState["bridge"]
+	levelState = restoreState["levelstate"]
 	exitSave = restoreState["exitsave"]
 	inSaveRoom = restoreState["insaveroom"]
 	returnLevel = restoreState["returnlevel"]
