@@ -15,8 +15,10 @@ onready var anim = $AnimationPlayer
 # export(String, FILE, "*.tscn") var requiredKey = ""
 var switchOn = false
 var canUse = false
+export var requiresKey = false
 
 export(String) var keyName = ""
+export(String) var switchUsed = ""
 
 """ # creates drop down list in inspector
 enum KEYTYPE {none, diamond, lever, square, triangle}
@@ -43,8 +45,11 @@ func _ready():
 
 func _ready():
 
-	get(keyName)
-	keyName = str2var (keyName)
+	if gameController.switches.has(switchUsed) == false:
+		get(switchUsed)
+		switchUsed = str2var (switchUsed)
+	else:
+		anim.play("unlocked")
 	# gameController.keyName = true
 	
 
@@ -53,6 +58,7 @@ func _process(_area):
 		emit_signal("turnOn")
 		anim.play("unlocked")
 		switchOn = true
+		gameController.switches[switchUsed] = true
 
 # these functions need to be one and generic to take any type of interacting object
 func _on_Interface_area_entered(_area):
@@ -60,7 +66,7 @@ func _on_Interface_area_entered(_area):
 	print("area entered")
 	print(gameController.keys)
 	
-	if gameController.keys.has(keyName) == true:
+	if gameController.keys.has(keyName) == true && requiresKey == true:
 		canUse = true
 		print("can use")
 

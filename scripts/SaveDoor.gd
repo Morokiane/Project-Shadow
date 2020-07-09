@@ -35,6 +35,7 @@ func WriteCoords():
 	if gameController.inSaveRoom == false:
 		gameController.returnLevel = returnLevel
 		gameController.exitSave = Vector2(exitX, exitY)
+		characterController.destination = Vector2(0,0)
 		LoadLevel()
 	else:
 		confirmReturn = gameController.returnLevel

@@ -37,7 +37,7 @@ float fbm(vec2 coord){
 
 void fragment() {
 	
-	vec2 coord = UV * 500.0; //controls the size of texture
+	vec2 coord = UV * 250.0; //controls the size of texture
 	
 	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.5, TIME * -0.5))); //was 0.5
 	

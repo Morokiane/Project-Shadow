@@ -14,6 +14,9 @@ var returnLevel = ""
 #dictionaries
 var keys := {}
 var levelState := {}
+var switches := {}
+
+#stores the saved data that is restored on load
 var restoreState = {}
 
 func _ready():
@@ -41,6 +44,7 @@ func Save():
 		# "diamondkey" : diamondKey, #this needs to be changes to the keys dictionary.
 		"Keys" : keys,
 		# "bridge" : drawBridgeOpen,
+		"Switches" : switches,
 		"levelstate" : levelState,
 		"lantern" : hasLantern,
 		"exitsave" : exitSave,
@@ -56,6 +60,7 @@ func Load():
 	keys = restoreState["Keys"]
 	hasLantern = restoreState["lantern"]
 	# drawBridgeOpen = restoreState["bridge"]
+	switches = restoreState["Switches"]
 	levelState = restoreState["levelstate"]
 	exitSave = restoreState["exitsave"]
 	inSaveRoom = restoreState["insaveroom"]
