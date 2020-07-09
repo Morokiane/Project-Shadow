@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var gameController = get_node("/root/GameController")
-onready var characterController = get_node("/root/CharacterController")
+onready var characterSpawner = get_node("/root/CharacterSpawner")
 
 export var playerCanDie = false
 # export (Script) var gameSaveClass #allows for another script to be added to an node
@@ -32,8 +32,8 @@ func _ready():
 	# VisualServer.set_default_clear_color(Color.black)
 	
 	if gameController.start == false && gameController.inSaveRoom == false:
-		gameController.player.position = characterController.destination
-		# print (characterController.destination)
+		gameController.player.position = characterSpawner.destination
+		# print (characterSpawn.destination)
 		print ("room spawn")
 		
 	elif gameController.start == true && gameController.inSaveRoom == false:

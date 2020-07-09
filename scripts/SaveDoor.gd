@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var gameController = get_node("/root/GameController")
-onready var characterController = get_node("/root/CharacterController")
+onready var characterSpawner = get_node("/root/characterSpawner")
 onready var player = gameController.player
 
 # export (NodePath) var currentL = null
@@ -35,7 +35,7 @@ func WriteCoords():
 	if gameController.inSaveRoom == false:
 		gameController.returnLevel = returnLevel
 		gameController.exitSave = Vector2(exitX, exitY)
-		characterController.destination = Vector2(0,0)
+		characterSpawner.destination = Vector2(0,0)
 		LoadLevel()
 	else:
 		confirmReturn = gameController.returnLevel

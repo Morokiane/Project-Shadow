@@ -63,12 +63,12 @@ func _process(_area):
 # these functions need to be one and generic to take any type of interacting object
 func _on_Interface_area_entered(_area):
 
-	print("area entered")
-	print(gameController.keys)
+	# print("area entered")
+	# print(gameController.keys)
 	
 	if gameController.keys.has(keyName) == true && requiresKey == true:
 		canUse = true
-		print("can use")
+		# print("can use")
 
 # func _on_Leverlocked_area_entered(_area):
 

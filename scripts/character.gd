@@ -3,8 +3,8 @@ extends KinematicBody2D
 export var accel = 512
 export var maxSpeed = 90
 export var friction = 0.25
-export var gravity = 400 #was 200
-export var jumpForce = 128
+export var gravity = 400 #changed on node
+export var jumpForce = 128 #this number is hard coded somewhere...this var doesn't do shit
 export var maxSlope = 46
 export var canDie = false
 export var timeLeft = 10
@@ -25,13 +25,14 @@ var energy = 3 #needed?
 var movingRight = true
 var movingLeft = false
 var startTime = false
+var onLadder = false
 
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
 onready var timer = $Timer
 onready var lanternLight = $Sprite/Light2D
 onready var gameController = get_node("/root/GameController")
-onready var characterController = get_node("/root/CharacterController") #only here to reset character
+onready var characterSpawner = get_node("/root/CharacterSpawner") #only here to reset character
 onready var cameraFollow = $CameraFollow
 
 func _ready():
@@ -72,21 +73,13 @@ func _physics_process(delta):
 		Friction(pos)
 		UpdateSnap()
 		Jump()
+		Ladder(delta)
 		Gravity(delta)
 		#UpdateAnim(pos)
 	#	UpdateAnimL(pos)
 		Move(pos)
 		Duck()
 		LanternScale(delta)
-
-func Save():
-	var saveDictionary = {
-		"filename" : get_filename(),
-		"parent" : get_parent().get_path(),
-		"position_x" : position.x,
-		"position_y" : position.y
-	}
-	return saveDictionary
 
 func GetPosition():
 	var pos = Vector2.ZERO
@@ -116,6 +109,19 @@ func Friction(pos):
 func UpdateSnap():
 	if is_on_floor():
 		snap = Vector2.DOWN
+
+
+func Ladder(delta):
+
+	if onLadder == true:
+		gravity = 0
+		if Input.is_action_pressed("Left Analog - Up"):
+			motion.y += -100.0 * delta
+			snap = Vector2.ZERO
+			justJumped = true
+	else:
+		gravity = 600
+		# print(gravity)
 
 func Jump():
 	if canJump == true:
@@ -233,7 +239,7 @@ func Cheats():
 		print ("take this key out")
 
 	if Input.is_action_just_pressed("reset"):
-		gameController.player.position = characterController.destination
+		gameController.player.position = characterSpawner.destination
 
 	if Input.is_action_just_pressed("save"):
 		SaveLoad.SaveGame()

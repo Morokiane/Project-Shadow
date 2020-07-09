@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var gameController = get_node("/root/GameController")
-onready var characterController = get_node("/root/CharacterController")
+onready var characterSpawner = get_node("/root/characterSpawner")
 
 # creates drop down list in inspector
 enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}
@@ -28,8 +28,8 @@ func _ready():
 
 	# VisualServer.set_default_clear_color(Color.black)
 	if gameController.start == false:
-		gameController.player.position = characterController.destination
-		print (characterController.destination)
+		gameController.player.position = characterSpawner.destination
+		print (characterSpawner.destination)
 		gameController.inSaveRoom = true
 	else:
 		gameController.player.position = Vector2(338, 0.994)
