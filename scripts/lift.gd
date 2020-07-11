@@ -19,6 +19,10 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		canPressButton = true
 
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("player"):
+		canPressButton = false
+
 func GoDown():
 	
 	gameController.player.canJump = false

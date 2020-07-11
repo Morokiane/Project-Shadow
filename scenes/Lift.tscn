@@ -142,3 +142,4 @@ position = Vector2( 137, 3 )
 rotation = -1.5708
 polygon = PoolVector2Array( -61, -5.00021, 57, -4.99979, 57.0005, -133, -60.9995, -133, -60.9995, -138, 62.0005, -138, 62, 1.00023, -61, 0.999786 )
 [connection signal="body_entered" from="KinematicBody2D/AnimatedSprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="KinematicBody2D/AnimatedSprite/Area2D" to="." method="_on_Area2D_body_exited"]

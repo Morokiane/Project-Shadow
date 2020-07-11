@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var gameController = get_node("/root/GameController")
-onready var characterSpawner = get_node("/root/characterSpawner")
+onready var characterSpawner = get_node("/root/CharacterSpawner")
 onready var player = gameController.player
 
 # export (NodePath) var currentL = null

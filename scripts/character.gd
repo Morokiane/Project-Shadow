@@ -26,6 +26,7 @@ var movingRight = true
 var movingLeft = false
 var startTime = false
 var onLadder = false
+var goingDown = false
 
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
@@ -71,10 +72,10 @@ func _physics_process(delta):
 	#		get_tree().quit()
 		GetMovement(delta, pos)
 		Friction(pos)
-		UpdateSnap()
-		Jump()
-		Ladder(delta)
 		Gravity(delta)
+		UpdateSnap()
+		Ladder(delta)
+		Jump()
 		#UpdateAnim(pos)
 	#	UpdateAnimL(pos)
 		Move(pos)
@@ -114,14 +115,16 @@ func UpdateSnap():
 func Ladder(delta):
 
 	if onLadder == true:
-		gravity = 0
+		# gravity = 0
 		if Input.is_action_pressed("Left Analog - Up"):
-			motion.y += -100.0 * delta
-			snap = Vector2.ZERO
-			justJumped = true
-	else:
-		gravity = 600
-		# print(gravity)
+			position.y += -300.0 * delta
+			# snap = Vector2.ZERO
+			# justJumped = true
+		elif Input.is_action_pressed("Left Analog - Down"):
+			goingDown = true
+			position.y += 100 * delta
+		else:
+			goingDown = false
 
 func Jump():
 	if canJump == true:
@@ -172,7 +175,9 @@ func Move(pos):
 			motion.x = lastMotion.x
 		
 		if wasOnFloor && not is_on_floor() && not justJumped:
-			motion.y = lastPosition.y
+			motion.y = 0
+
+			# motion.y = lastPosition.y
 			
 		if is_on_floor() && get_floor_velocity().length() == 0 and abs(motion.x) < 1:
 			position.x = lastPosition.x

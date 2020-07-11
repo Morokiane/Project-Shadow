@@ -71,7 +71,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="."]
 margin_right = 71.0
 margin_bottom = 24.0
-text = "Alpha 1"
+text = "Alpha 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
