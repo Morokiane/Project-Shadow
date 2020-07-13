@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var gameController = get_node("/root/GameController")
-onready var characterSpawner = get_node("/root/characterSpawner")
+onready var characterSpawner = get_node("/root/CharacterSpawner")
 
 # creates drop down list in inspector
 enum BGCOLOR {black, darkergray, darkgray, mediumgray, test}
