@@ -4,7 +4,7 @@ export var accel = 512
 export var maxSpeed = 90
 export var friction = 0.25
 export var gravity = 400 #changed on node
-export var jumpForce = 128 #this number is hard coded somewhere...this var doesn't do shit
+export var jForce = 128 #this number is hard coded somewhere...this var doesn't do shit
 export var maxSlope = 46
 export var canDie = false
 export var timeLeft = 10
@@ -93,7 +93,7 @@ func GetMovement(delta, pos):
 		motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 
 func Duck():
-	if canDuck == true:
+	if canDuck && is_on_floor():
 		if Input.is_action_pressed("Left Analog - Down") && gameController.hasLantern == true:
 			animation.play("duckL")
 			canMove = false	
@@ -118,29 +118,31 @@ func Ladder(delta):
 		# gravity = 0
 		if Input.is_action_pressed("Left Analog - Up"):
 			position.y += -300.0 * delta
+			# animation.play("ladder")
 			# snap = Vector2.ZERO
 			# justJumped = true
 		elif Input.is_action_pressed("Left Analog - Down"):
 			goingDown = true
-			position.y += 100 * delta
+			position.y += 55 * delta
+			# animation.play("ladder")
 		else:
 			goingDown = false
 
 func Jump():
 	if canJump == true:
-		if is_on_floor():
+		if is_on_floor() && !onLadder:
 			if Input.is_action_just_pressed("Jump"):
-				motion.y = -jumpForce
+				motion.y = -jForce
 				justJumped = true
 				snap = Vector2.ZERO
 		else:
-			if Input.is_action_just_released("Jump") && motion.y < - jumpForce/2:
-				motion.y = -jumpForce/2;
+			if Input.is_action_just_released("Jump") && motion.y < - jForce/2:
+				motion.y = -jForce/2;
 
 func Gravity(delta):
 	if not is_on_floor():
 		motion.y += gravity * delta
-		motion.y = min(motion.y, jumpForce)
+		motion.y = min(motion.y, jForce)
 		
 func UpdateAnim(pos):
 	if pos.x != 0 && gameController.hasLantern == false:
@@ -151,6 +153,9 @@ func UpdateAnim(pos):
 
 	if not is_on_floor():
 		animation.play("jump")
+
+	if !is_on_floor() && onLadder:
+		animation.play("ladder")
 
 func UpdateAnimL(pos):
 	if pos.x != 0 && gameController.hasLantern == true:

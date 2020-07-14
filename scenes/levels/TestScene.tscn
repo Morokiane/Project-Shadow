@@ -28,7 +28,7 @@ position = Vector2( 49, -67 )
 z_index = 2
 
 [node name="steam_icon" type="Sprite" parent="."]
-position = Vector2( 150, -93 )
+position = Vector2( 90, -96 )
 texture = ExtResource( 4 )
 
 [node name="Cave_TileMap" parent="." instance=ExtResource( 1 )]
@@ -48,7 +48,7 @@ position = Vector2( -125, 384 )
 position = Vector2( 320, 385 )
 
 [node name="CollisionShape2D" parent="Ladder" index="0"]
-position = Vector2( 32, -221 )
+position = Vector2( 32, -326 )
 
 [node name="TileMap" parent="Ladder" index="1"]
 tile_data = PoolIntArray( -458752, 0, 0, -393216, 0, 65536, -327680, 0, 65536, -262144, 0, 65536, -196608, 0, 65536, -131072, 0, 65536, -65536, 0, 131072 )

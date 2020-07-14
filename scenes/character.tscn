@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprite sheets/player.png" type="Texture" id=1]
 [ext_resource path="res://scripts/character.gd" type="Script" id=2]
@@ -142,6 +142,22 @@ tracks/1/keys = {
 "values": [ Vector2( -18, -11.3817 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "ladder"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 114, 115, 116, 117, 118, 119, 120, 121, 122, 123 ]
+}
+
 [sub_resource type="Animation" id=8]
 length = 1.15
 step = 0.06
@@ -198,6 +214,7 @@ collision_mask = 9
 script = ExtResource( 2 )
 friction = 0.5
 gravity = 600
+jForce = 256
 timeLeft = 5
 lightSpeed = 0.1
 lightCanScale = false
@@ -205,9 +222,9 @@ lightCanScale = false
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -56.6183 )
 texture = ExtResource( 1 )
-vframes = 6
+vframes = 7
 hframes = 19
-frame = 11
+frame = 8
 
 [node name="GhostTrail" parent="Sprite" instance=ExtResource( 3 )]
 visible = false
@@ -258,6 +275,7 @@ anims/idle = SubResource( 4 )
 anims/idleL = SubResource( 5 )
 anims/jump = SubResource( 6 )
 anims/jumpL = SubResource( 7 )
+anims/ladder = SubResource( 11 )
 anims/walk = SubResource( 8 )
 anims/walkL = SubResource( 9 )
 
