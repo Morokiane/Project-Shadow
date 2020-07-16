@@ -43,6 +43,6 @@ func GoUp():
 func Reset():
 	# gameController.player.justJumped = false
 	animSprite.play("off")
-	canPressButton = true
+	canPressButton = false
 	gameController.player.canJump = true
 	gameController.player.canDuck = true

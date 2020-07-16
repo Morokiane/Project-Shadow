@@ -50,6 +50,7 @@ func Save():
 		"exitsave" : exitSave,
 		"insaveroom" : inSaveRoom,
 		"returnlevel" : returnLevel
+		# "lightscale" : lightScale Do I want this or should the light reset to full on save/load??
 	}
 	return gameState
 
@@ -65,3 +66,4 @@ func Load():
 	exitSave = restoreState["exitsave"]
 	inSaveRoom = restoreState["insaveroom"]
 	returnLevel = restoreState["returnlevel"]
+	# lightScale = restoreState["lightscale"]

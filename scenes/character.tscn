@@ -3,8 +3,8 @@
 [ext_resource path="res://sprite sheets/player.png" type="Texture" id=1]
 [ext_resource path="res://scripts/character.gd" type="Script" id=2]
 [ext_resource path="res://shaders/GhostTrail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprite/light/lightx64-dither.png" type="Texture" id=4]
 [ext_resource path="res://character.png" type="Texture" id=5]
-[ext_resource path="res://sprite/light/lightx64.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.2671
@@ -142,7 +142,7 @@ tracks/1/keys = {
 "values": [ Vector2( -18, -11.3817 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "ladder"
 loop = true
 tracks/0/type = "value"
@@ -158,7 +158,7 @@ tracks/0/keys = {
 "values": [ 114, 115, 116, 117, 118, 119, 120, 121, 122, 123 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 1.15
 step = 0.06
 tracks/0/type = "value"
@@ -174,8 +174,7 @@ tracks/0/keys = {
 "values": [ 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "walkL"
+[sub_resource type="Animation" id=10]
 length = 1.15
 step = 0.06
 tracks/0/type = "value"
@@ -203,7 +202,7 @@ tracks/1/keys = {
 "values": [ Vector2( 31.2093, -13.8827 ), Vector2( 33.3719, -12.0052 ), Vector2( 36.9766, -6.81029 ), Vector2( 40.2215, -0.634495 ), Vector2( 41.6133, 1.22123 ), Vector2( 41.9613, -0.170563 ), Vector2( 41.7293, -4.57792 ), Vector2( 41.2654, -9.79715 ), Vector2( 40.6855, -14.3205 ), Vector2( 40.3375, -15.5963 ), Vector2( 39.9896, -13.8566 ), Vector2( 39.1777, -8.52134 ), Vector2( 37.6699, -3.53407 ), Vector2( 36.6261, 0.409355 ), Vector2( 35.9302, 1.68517 ), Vector2( 35.4662, -0.0545769 ), Vector2( 34.7703, -3.76603 ), Vector2( 33.4945, -8.86928 ), Vector2( 32.1027, -12.4648 ) ]
 }
 
-[sub_resource type="OccluderPolygon2D" id=10]
+[sub_resource type="OccluderPolygon2D" id=11]
 polygon = PoolVector2Array( -8, -73, -8, -68, -6, -54, -6, -40, -6, -26, -6, -5, -3, 0, 3, 0, 6, -5, 10, -27, 10, -37, 9, -44, 9, -49, 10, -52, 10, -56, 6, -63, 6, -96, 9, -104, 9, -110, 3, -116, -3, -116, -9, -110, -9, -104, -5, -96 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -214,7 +213,7 @@ collision_mask = 9
 script = ExtResource( 2 )
 friction = 0.5
 gravity = 600
-jForce = 256
+jForce = 270
 timeLeft = 5
 lightSpeed = 0.1
 lightCanScale = false
@@ -234,7 +233,7 @@ texture = ExtResource( 5 )
 visible = false
 position = Vector2( 32.1027, -12.4648 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 color = Color( 0.980392, 0.909804, 0.72549, 1 )
 shadow_enabled = true
 shadow_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
@@ -247,7 +246,7 @@ __meta__ = {
 light_mask = 0
 position = Vector2( 9.53674e-07, -1.97917 )
 z_index = -3
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -275,12 +274,12 @@ anims/idle = SubResource( 4 )
 anims/idleL = SubResource( 5 )
 anims/jump = SubResource( 6 )
 anims/jumpL = SubResource( 7 )
-anims/ladder = SubResource( 11 )
-anims/walk = SubResource( 8 )
-anims/walkL = SubResource( 9 )
+anims/ladder = SubResource( 8 )
+anims/walk = SubResource( 9 )
+anims/walkL = SubResource( 10 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 10 )
+occluder = SubResource( 11 )
 
 [node name="CameraFollow" type="RemoteTransform2D" parent="."]
 position = Vector2( 0, -74 )
