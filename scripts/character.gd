@@ -123,7 +123,7 @@ func Ladder(delta):
 			# justJumped = true
 		elif Input.is_action_pressed("Left Analog - Down"):
 			goingDown = true
-			position.y += 55 * delta
+			position.y += 75 * delta
 			# animation.play("ladder")
 		else:
 			goingDown = false

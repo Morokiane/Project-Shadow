@@ -5,6 +5,7 @@ var player
 
 var start = true
 var drawBridgeOpen = false
+var liftAtTop = true
 var gateOpen = false
 var hasLantern = false
 var exitSave = Vector2(0,0)

@@ -1,19 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprite sheets/liftcall.png" type="Texture" id=1]
+[ext_resource path="res://scripts/liftcall.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 18 )
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "inactive",
+"speed": 5.0
+} ]
+
 [node name="LiftCall" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -80 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -64 )
-texture = ExtResource( 1 )
-hframes = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+frames = SubResource( 4 )
+animation = "inactive"
+[connection signal="body_entered" from="." to="." method="_on_LiftCall_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_LiftCall_body_exited"]
