@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DirtTileset.png-849f45871371544d43c9a9a3e1d98e19.stex"
+path="res://.import/Tilemap - Bitmasking.png-8167fbdf3c16e0652e828db1195f3237.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DirtTileset.png"
-dest_files=[ "res://.import/DirtTileset.png-849f45871371544d43c9a9a3e1d98e19.stex" ]
+source_file="res://Tilemap - Bitmasking.png"
+dest_files=[ "res://.import/Tilemap - Bitmasking.png-8167fbdf3c16e0652e828db1195f3237.stex" ]
 
 [params]
 
