@@ -38,5 +38,9 @@ shape = SubResource( 1 )
 position = Vector2( 0, -64 )
 frames = SubResource( 4 )
 animation = "inactive"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 [connection signal="body_entered" from="." to="." method="_on_LiftCall_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_LiftCall_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

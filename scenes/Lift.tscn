@@ -96,7 +96,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 13.0001, 24 )
+extents = Vector2( 60, 24 )
 
 [node name="Lift" type="Node2D"]
 position = Vector2( 0, -132 )
@@ -129,7 +129,7 @@ animation = "off"
 [node name="Area2D" type="Area2D" parent="KinematicBody2D/AnimatedSprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/AnimatedSprite/Area2D"]
-position = Vector2( -19, -6.10352e-05 )
+position = Vector2( -55, 1.9998 )
 shape = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
