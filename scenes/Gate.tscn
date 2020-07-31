@@ -4,10 +4,10 @@
 [ext_resource path="res://sprite/light/square-dither.png" type="Texture" id=2]
 [ext_resource path="res://scripts/InterfaceTarget.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 64 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "open"
 length = 0.9
 tracks/0/type = "value"
@@ -37,7 +37,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "opened"
 length = 0.1
 tracks/0/type = "value"
@@ -80,17 +80,14 @@ position = Vector2( 30, -64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody"]
 position = Vector2( -22, 0 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 57, -64 )
+position = Vector2( 25, -64 )
 texture = ExtResource( 2 )
 energy = 5.0
 shadow_enabled = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/open = SubResource( 12 )
-anims/opened = SubResource( 13 )
+anims/open = SubResource( 2 )
+anims/opened = SubResource( 3 )

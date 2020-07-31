@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Interface.gd" type="Script" id=1]
 [ext_resource path="res://sprite sheets/key-lever.png" type="Texture" id=2]
@@ -29,10 +29,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4 ]
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "used"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
 }
 
 [node name="Interface" type="Area2D"]
@@ -47,8 +62,10 @@ shape = SubResource( 1 )
 position = Vector2( 0, -52 )
 texture = ExtResource( 2 )
 hframes = 6
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/locked = SubResource( 2 )
 anims/unlocked = SubResource( 3 )
+anims/used = SubResource( 4 )
 [connection signal="area_entered" from="." to="." method="_on_Interface_area_entered"]

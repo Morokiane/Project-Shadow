@@ -49,7 +49,7 @@ func _ready():
 		get(switchUsed)
 		switchUsed = str2var (switchUsed)
 	else:
-		anim.play("unlocked")
+		anim.play("used")
 	# gameController.keyName = true
 	
 
