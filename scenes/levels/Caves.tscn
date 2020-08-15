@@ -102,7 +102,7 @@ texture = ExtResource( 9 )
 
 [node name="Waterdrop" parent="." instance=ExtResource( 11 )]
 position = Vector2( -226, 1248 )
-frame = 0
+frame = 1
 
 [node name="ropebridge" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1057, 1203 )

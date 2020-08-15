@@ -1,4 +1,4 @@
-extends Node2D
+ extends Node2D
 
 onready var gameController = get_node("/root/GameController")
 onready var characterSpawner = get_node("/root/CharacterSpawner")
