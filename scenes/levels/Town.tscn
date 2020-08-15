@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://scenes/ButtonRG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Items/leverkey.tscn" type="PackedScene" id=2]
@@ -73,7 +73,11 @@
 [ext_resource path="res://scenes/BG/Lighthouse.tscn" type="PackedScene" id=71]
 [ext_resource path="res://scenes/SaveDoor.tscn" type="PackedScene" id=72]
 [ext_resource path="res://scenes/Items/Book.tscn" type="PackedScene" id=73]
+[ext_resource path="res://scenes/ChruchDoor.tscn" type="PackedScene" id=74]
 [ext_resource path="res://scenes/key.tscn" type="PackedScene" id=75]
+[ext_resource path="res://scenes/SunLock.tscn" type="PackedScene" id=76]
+[ext_resource path="res://scenes/Items/SpokeKey.tscn" type="PackedScene" id=77]
+[ext_resource path="res://scenes/Items/CenterKey.tscn" type="PackedScene" id=78]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 120 )
@@ -308,6 +312,7 @@ barrierName = "drawBridge"
 
 [node name="SconceSide" parent="Items/DrawBridge" instance=ExtResource( 42 )]
 position = Vector2( 1, -160 )
+frame = 4
 speed_scale = 3.0
 playing = true
 
@@ -329,7 +334,10 @@ collision_layer = 4
 [node name="Wave" parent="Items" instance=ExtResource( 47 )]
 position = Vector2( -304, 383 )
 z_index = 2
+<<<<<<< HEAD
 frame = 1
+=======
+>>>>>>> a1c8ff1... sun key
 speed_scale = 2.0
 playing = true
 
@@ -411,11 +419,19 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 51 )]
 position = Vector2( 4008, 342 )
 z_index = 1
+<<<<<<< HEAD
 frame = 11
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
 position = Vector2( 3298, -801 )
 frame = 11
+=======
+frame = 2
+
+[node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
+position = Vector2( 3298, -801 )
+frame = 2
+>>>>>>> a1c8ff1... sun key
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 52 )]
@@ -442,7 +458,11 @@ texture = ExtResource( 33 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 66 )]
 position = Vector2( 6581, 611 )
+<<<<<<< HEAD
 frame = 127
+=======
+frame = 207
+>>>>>>> a1c8ff1... sun key
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -514,6 +534,9 @@ texture = ExtResource( 36 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ChruchDoor2" parent="Background/ParallaxBackground/05/church" instance=ExtResource( 74 )]
+position = Vector2( 276.145, 188.992 )
 
 [node name="moon" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.05, 0.05 )
@@ -590,6 +613,12 @@ position = Vector2( 8068, -951 )
 z_index = -10
 texture = ExtResource( 36 )
 
+[node name="ChruchDoor" parent="Background/church2" instance=ExtResource( 74 )]
+position = Vector2( 277, 189 )
+
+[node name="SunLock" parent="Background/church2" instance=ExtResource( 76 )]
+position = Vector2( 155, 196 )
+
 [node name="lamppost2" parent="Background" instance=ExtResource( 67 )]
 position = Vector2( 9428, 288 )
 
@@ -644,11 +673,15 @@ texture = ExtResource( 6 )
 
 [node name="candle" parent="Background" instance=ExtResource( 57 )]
 position = Vector2( 16, 885 )
+frame = 0
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 61 )]
 position = Vector2( 5715, 324 )
 z_index = -1
+<<<<<<< HEAD
 frame = 4
+=======
+>>>>>>> a1c8ff1... sun key
 
 [node name="barn_large" type="Sprite" parent="Background"]
 position = Vector2( 4898, -815 )
@@ -786,6 +819,13 @@ z_index = 2
 [node name="SaveDoor" parent="." instance=ExtResource( 72 )]
 position = Vector2( -653, 786 )
 returnLevel = "res://scenes/levels/Town.tscn"
+
+[node name="SpokeKey" parent="." instance=ExtResource( 77 )]
+position = Vector2( 453, 369 )
+keyName = "SpokeOne"
+
+[node name="CenterKey" parent="." instance=ExtResource( 78 )]
+position = Vector2( 495, 368 )
 [connection signal="turnOn" from="Rooms/gatehouse/Lever-locked" to="Rooms/gatehouse/Gate" method="_on_Interface_turnOn"]
 [connection signal="turnOn" from="Items/ButtonRG" to="Items/DrawBridge" method="_on_Interface_turnOn"]
 
