@@ -1,6 +1,6 @@
 extends Node
 
-var player
+var player #part of gameController.RegisterPlayer(self) in the character script
 # var WorldCamera = null
 
 var start = true

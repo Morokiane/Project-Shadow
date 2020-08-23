@@ -62,7 +62,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, -52 )
 texture = ExtResource( 2 )
 hframes = 6
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/locked = SubResource( 2 )

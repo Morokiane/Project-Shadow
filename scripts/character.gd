@@ -40,17 +40,22 @@ func _ready():
 	gameController.RegisterPlayer(self) #allows access to player from other scripts
 #	$"/root/GameController".RegisterPlayer(self)
 	timer.set_wait_time(timeLeft)
+	
+	print (gameController.player.canDie)
+	# this section of code is apparently not working. Seems to have to do with the load order of the character,
+	# level and game controllers
 	if canDie == true:
 		timer.start()
+		print("wtf")
 	# cameraFollow.remote_path = gameController.WorldCamera.get_path()
 
 func _process(_delta):
 	
 	Cheats()
-	
+	# print (timer.time_left)	
 	if gameController.hasLantern == true:
 		lanternLight.show()
-		timer.stop()
+		#timer.stop()
 	
 	if Input.is_action_just_pressed("lantern") && gameController.hasLantern == true:
 		gameController.hasLantern = false

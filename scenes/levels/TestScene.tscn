@@ -17,6 +17,7 @@ light_mode = 2
 "Persist",
 ]]
 script = ExtResource( 2 )
+playerCanDie = true
 color = 4
 
 [node name="Gate" parent="." instance=ExtResource( 6 )]

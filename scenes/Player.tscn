@@ -10,7 +10,7 @@
 [node name="character" parent="." instance=ExtResource( 43 )]
 collision_mask = 12
 maxSpeed = 130
-jumpForce = 215
+lightCanScale = true
 
 [node name="CameraFollow" parent="character" index="6"]
 position = Vector2( 0, -142 )
