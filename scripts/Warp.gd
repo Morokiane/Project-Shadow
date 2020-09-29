@@ -2,8 +2,9 @@ extends Area2D
 
 export (NodePath) var moveTarget = null
 
-var inDoor = false
 onready var doorIcon = $Indicator
+
+var inDoor = false
 
 func _ready():
 	doorIcon.hide()

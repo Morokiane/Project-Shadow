@@ -48,6 +48,7 @@ func _ready():
 	
 	if playerCanDie == true:
 		gameController.player.canDie = true
+		print (gameController.player.canDie)
 
 # func ColorTest():
 

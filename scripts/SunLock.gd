@@ -1,6 +1,10 @@
 extends Node2D
 
-onready var spokeAnim = $spokes
+onready var spokeOneAnim = $SpokeOne
+onready var spokeTwoAnim = $SpokeTwo
+onready var spokeThreeAnim = $SpokeThree
+onready var spokeFourAnim = $SpokeFour
+onready var spokeFiveAnim = $SpokeFive
 onready var centerAnim = $center
 
 var canAddKey = false
@@ -25,5 +29,14 @@ func _process(_delta):
         AddKey()
 
 func AddKey():
-    print ("adding a key")
-    pass
+
+    if GameController.keys.has("SpokeOne") == true:
+        spokeOneAnim.play("keyin")
+    if GameController.keys.has("SpokeTwo") == true:
+        spokeTwoAnim.play("keyin")
+    if GameController.keys.has("SpokeThree") == true:
+        spokeThreeAnim.play("keyin")
+    if GameController.keys.has("SpokeFour") == true:
+        spokeFourAnim.play("keyin")
+    if GameController.keys.has("SpokeFive") == true:
+        spokeFiveAnim.play("keyin")
