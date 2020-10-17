@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/Crystal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Lift.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/platform128.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Tile Maps/Dirt.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/Tile Maps/Ramps.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sprite/corpse.png" type="Texture" id=17]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 2
@@ -102,13 +103,17 @@ texture = ExtResource( 9 )
 
 [node name="Waterdrop" parent="." instance=ExtResource( 11 )]
 position = Vector2( -226, 1248 )
-frame = 3
+frame = 8
 
 [node name="ropebridge" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1057, 1203 )
 
 [node name="platform128" parent="." instance=ExtResource( 14 )]
 position = Vector2( 133, 1337 )
+
+[node name="corpse" type="Sprite" parent="."]
+position = Vector2( -258.562, 1272.54 )
+texture = ExtResource( 17 )
 [connection signal="comeHither" from="LiftCall" to="Lift" method="_on_LiftCall_comeHither"]
 
 [editable path="Ladder"]

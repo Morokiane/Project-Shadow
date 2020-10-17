@@ -16,6 +16,7 @@ var returnLevel = ""
 var keys := {}
 var levelState := {}
 var switches := {}
+var sunLock := {}
 
 #stores the saved data that is restored on load
 var restoreState = {}
@@ -50,7 +51,8 @@ func Save():
 		"lantern" : hasLantern,
 		"exitsave" : exitSave,
 		"insaveroom" : inSaveRoom,
-		"returnlevel" : returnLevel
+		"returnlevel" : returnLevel,
+		"sunlock" : sunLock
 		# "lightscale" : lightScale Do I want this or should the light reset to full on save/load??
 	}
 	return gameState
@@ -67,4 +69,5 @@ func Load():
 	exitSave = restoreState["exitsave"]
 	inSaveRoom = restoreState["insaveroom"]
 	returnLevel = restoreState["returnlevel"]
+	sunLock = restoreState["sunlock"]
 	# lightScale = restoreState["lightscale"]
