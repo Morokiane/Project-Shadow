@@ -5,7 +5,7 @@ uniform int octaves = 20;
 
 float rand(vec2 coord) {
 	
-	return fract(sin(dot(coord, vec2(56,78)) * 1000.0) * 1000.0);
+	return fract(sin(dot(coord, vec2(56,78)) * 1000.1) * 1000.1);
 }
 
 float noise(vec2 coord) {
@@ -38,7 +38,7 @@ float fbm(vec2 coord){
 
 void fragment(){
 	
-	vec2 coord = UV * 250.0;
+	vec2 coord = UV * 75.0;
 	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.5, TIME * -0.5)));
 	
 	float final = fbm(coord + motion);

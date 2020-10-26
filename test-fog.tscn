@@ -18,6 +18,6 @@ texture = ExtResource( 3 )
 
 [node name="-icon" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 457.18, 236.98 )
+position = Vector2( 434.737, 275.355 )
 scale = Vector2( 36.9687, 23.1039 )
 texture = ExtResource( 2 )
