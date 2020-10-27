@@ -1,11 +1,11 @@
 shader_type canvas_item;
 
 uniform vec3 color = vec3(1.0, 1.0, 1.0);
-uniform int octaves = 20;
+uniform int octaves = 250;
 
 float rand(vec2 coord) {
     //over 4000 fixes the banding on intel gpu's. Lower numbers like 78 work correctly on nvidia.
-	return fract(sin(dot(coord, vec2(56,4000)) * 500.0) * 500.0);
+	return fract(sin(dot(coord, vec2(56,78)) * 1000.0) * 1000.0);
 }
 
 float noise(vec2 coord) {
@@ -38,7 +38,7 @@ float fbm(vec2 coord){
 
 void fragment(){
 	
-	vec2 coord = UV * 250.0; //this sets the scale of fog
+	vec2 coord = UV * 50.0; //this sets the scale of fog
 	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.25, TIME * -0.25))); //set speed of fog movement
 	
 	float final = fbm(coord + motion);
