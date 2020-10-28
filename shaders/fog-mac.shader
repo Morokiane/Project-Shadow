@@ -39,7 +39,7 @@ float fbm(vec2 coord){
 void fragment(){
 	
 	vec2 coord = UV * 50.0; //this sets the scale of fog
-	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.25, TIME * -0.25))); //set speed of fog movement
+	vec2 motion = vec2(fbm(coord + vec2(TIME * 0.05, TIME * -0.05))); //set speed of fog movement
 	
 	float final = fbm(coord + motion);
 	

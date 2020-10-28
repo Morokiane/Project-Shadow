@@ -84,7 +84,9 @@ shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 25, -64 )
+z_index = -1
 texture = ExtResource( 2 )
+color = Color( 1, 1, 1, 0.0352941 )
 energy = 5.0
 shadow_enabled = true
 

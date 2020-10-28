@@ -10,16 +10,13 @@ texture = ExtResource( 1 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 0, -85 )
 texture = ExtResource( 3 )
-energy = 1.5
 shadow_enabled = true
 shadow_item_cull_mask = 32769
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( -26, -64 )
 texture = ExtResource( 3 )
-energy = 1.5
 
 [node name="Light2D3" type="Light2D" parent="."]
 position = Vector2( 26, -64 )
 texture = ExtResource( 3 )
-energy = 1.5

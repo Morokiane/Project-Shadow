@@ -245,13 +245,14 @@ polygon = PoolVector2Array( 1003, 1088, 1003, 1058, 1045, 1021, 1071, 997, 1095,
 
 [node name="room1" type="Sprite" parent="Rooms"]
 position = Vector2( 5024, 928 )
+z_index = -1
 texture = ExtResource( 27 )
 
 [node name="fire" parent="Rooms/room1" instance=ExtResource( 50 )]
 modulate = Color( 1, 1, 1, 0.752941 )
 position = Vector2( -41, 63 )
 scale = Vector2( 1.22727, 0.703125 )
-frame = 4
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -319,7 +320,7 @@ playing = true
 [node name="Light2D" type="Light2D" parent="Items/DrawBridge/SconceSide"]
 position = Vector2( 0, 10 )
 texture = ExtResource( 5 )
-energy = 2.5
+energy = 1.75
 shadow_enabled = true
 
 [node name="DiamondKey" parent="Items" instance=ExtResource( 75 )]
@@ -334,7 +335,7 @@ collision_layer = 4
 [node name="Wave" parent="Items" instance=ExtResource( 47 )]
 position = Vector2( -304, 383 )
 z_index = 2
-frame = 5
+frame = 4
 speed_scale = 2.0
 playing = true
 
@@ -416,10 +417,11 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 51 )]
 position = Vector2( 4008, 342 )
 z_index = 1
+frame = 5
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
 position = Vector2( 3298, -801 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 52 )]
@@ -657,11 +659,12 @@ texture = ExtResource( 6 )
 
 [node name="candle" parent="Background" instance=ExtResource( 57 )]
 position = Vector2( 16, 885 )
-frame = 0
+frame = 1
 
 [node name="groundtorch" parent="Background" instance=ExtResource( 61 )]
 position = Vector2( 5715, 324 )
 z_index = -1
+frame = 2
 
 [node name="barn_large" type="Sprite" parent="Background"]
 position = Vector2( 4898, -815 )
@@ -683,7 +686,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 22 )
-frame = 10
+frame = 11
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -797,7 +800,7 @@ position = Vector2( 10367, 384 )
 z_index = 2
 
 [node name="SaveDoor" parent="." instance=ExtResource( 72 )]
-position = Vector2( -653, 786 )
+position = Vector2( -1144, 963 )
 returnLevel = "res://scenes/levels/Town.tscn"
 
 [node name="SpokeTwo" parent="." instance=ExtResource( 77 )]
