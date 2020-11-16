@@ -50,6 +50,8 @@ func _ready():
 		switchUsed = str2var (switchUsed)
 	else:
 		anim.play("used")
+		switchOn = true
+		print("interface used")
 	# gameController.keyName = true
 	
 
