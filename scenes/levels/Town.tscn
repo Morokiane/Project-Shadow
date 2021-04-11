@@ -317,7 +317,7 @@ barrierName = "drawBridge"
 
 [node name="SconceSide" parent="Items/DrawBridge" instance=ExtResource( 42 )]
 position = Vector2( 1, -160 )
-frame = 2
+frame = 4
 speed_scale = 3.0
 playing = true
 
@@ -339,7 +339,6 @@ collision_layer = 4
 [node name="Wave" parent="Items" instance=ExtResource( 47 )]
 position = Vector2( -304, 383 )
 z_index = 2
-frame = 6
 speed_scale = 2.0
 playing = true
 
@@ -421,11 +420,11 @@ __meta__ = {
 [node name="Scarecrow" parent="Background/ParallaxBackground/09" instance=ExtResource( 51 )]
 position = Vector2( 4008, 342 )
 z_index = 1
-frame = 12
+frame = 8
 
 [node name="scarecrow_side" parent="Background/ParallaxBackground/09" instance=ExtResource( 60 )]
 position = Vector2( 3298, -801 )
-frame = 12
+frame = 8
 playing = true
 
 [node name="Crow" parent="Background/ParallaxBackground/09" instance=ExtResource( 52 )]
@@ -452,7 +451,7 @@ texture = ExtResource( 33 )
 
 [node name="waterfall" parent="Background/ParallaxBackground/09" instance=ExtResource( 66 )]
 position = Vector2( 6581, 611 )
-frame = 17
+frame = 66
 
 [node name="graveyard" type="Sprite" parent="Background/ParallaxBackground/09"]
 position = Vector2( 7916, -763 )
@@ -477,7 +476,7 @@ scale = Vector2( 0.6425, 0.6425 )
 texture = ExtResource( 39 )
 
 [node name="barn" type="Sprite" parent="Background/ParallaxBackground/05"]
-position = Vector2( 2471, 260 )
+position = Vector2( 2471, 239 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -1
 texture = ExtResource( 17 )
@@ -668,7 +667,6 @@ frame = 1
 [node name="groundtorch" parent="Background" instance=ExtResource( 61 )]
 position = Vector2( 5715, 324 )
 z_index = -1
-frame = 4
 
 [node name="barn_large" type="Sprite" parent="Background"]
 position = Vector2( 4898, -815 )
@@ -690,7 +688,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/ship"]
 position = Vector2( 252, 169 )
 frames = SubResource( 22 )
-frame = 4
+frame = 12
 playing = true
 __meta__ = {
 "_edit_lock_": true
